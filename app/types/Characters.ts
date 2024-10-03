@@ -1,10 +1,7 @@
+import { ResponseInfo } from "./ResponseInfo"
+
 export interface Characters { 
-  "info": {
-    "count": number,
-    "pages": number,
-    "next": string | null,
-    "prev":  string | null
-  },
+  "info": ResponseInfo,
   "results": Character[]
 }
 
