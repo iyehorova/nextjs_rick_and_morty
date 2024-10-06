@@ -1,17 +1,30 @@
 'use client';
+
 import clsx from 'clsx';
-import { useState } from 'react';
 import {
-  FilterCharacters,
-  FilterEpisodes,
-  FilterLocations,
-} from '../types/FilterBy';
+  MouseEvent,
+  useState,
+} from 'react';
+
+
 type Props = {
-  filterBy: typeof FilterCharacters | typeof FilterEpisodes | typeof FilterLocations;
-};
-export default function DropdownList({ filterBy }: Props): JSX.Element {
+  filterBy: string;
+  options: string[];
+  onFilterSelect: (value: string) => void;
+}
+export default function DropdownList({ filterBy, options, onFilterSelect }: Props): JSX.Element {
   const [isOpen, setIsOpen] = useState(false);
-  const options = Object.values(filterBy);
+  
+
+  function handleFilterSelect(event: MouseEvent<HTMLLabelElement>) {
+    const labelElement = event.currentTarget;
+    const inputElement = labelElement.querySelector('input') as HTMLInputElement;
+    
+    if (inputElement) {
+      const currentFilter = inputElement.name; 
+      onFilterSelect(currentFilter);
+    }
+  }
   return (
     <div className="relative inline-block text-left">
       <div>
@@ -23,7 +36,7 @@ export default function DropdownList({ filterBy }: Props): JSX.Element {
           aria-haspopup="true"
           onClick={() => setIsOpen(!isOpen)}
         >
-          Filter by
+          { filterBy}
           <img src="/img/icon-arrow.svg" width={20} height={20} alt="" />
         </button>
       </div>
@@ -39,55 +52,21 @@ export default function DropdownList({ filterBy }: Props): JSX.Element {
         tabIndex={-1}
       >
         <div className="py-1" role="none">
-          {options.map(option => (
-            <a
-              href="#"
-              className="block px-4 py-2 text-sm text-gray-700"
-              role="selectitem"
-              tabIndex={-1}
-              id="menu-item-0"
-            >
-              {option}
-            </a>
-          ))}
-          {/* <a
-            href="#"
-            className="block px-4 py-2 text-sm text-gray-700"
-            role="selectitem"
-            tabIndex={-1}
-            id="menu-item-0"
-          >
-            Account settings
-          </a>
-          <a
-            href="#"
-            className="block px-4 py-2 text-sm text-gray-700"
-            role="selectitem"
-            tabIndex={-1}
-            id="menu-item-1"
-          >
-            Support
-          </a>
-          <a
-            href="#"
-            className="block px-4 py-2 text-sm text-gray-700"
-            role="selectitem"
-            tabIndex={-1}
-            id="menu-item-2"
-          >
-            License
-          </a>
-          <form method="POST" action="#" role="none">
-            <button
-              type="submit"
-              className="block w-full px-4 py-2 text-left text-sm text-gray-700"
-              role="menuitem"
-              tabIndex={-1}
-              id="menu-item-3"
-            >
-              Sign out
-            </button>
-          </form> */}
+          <form>
+            {options.map(option => (
+              <label
+                key={option}
+                className="flex justify-between px-4 py-2 text-sm text-gray-700"
+                role="selectitem"
+                tabIndex={-1}
+                id="menu-item-0"
+                onClick={handleFilterSelect}
+              >
+                {option}
+                <input type="checkbox" name={option}></input>
+              </label>
+            ))}
+          </form>
         </div>
       </div>
     </div>

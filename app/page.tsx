@@ -1,30 +1,16 @@
-import Image from "next/image";
-import { Characters } from "./types/Characters";
-import FilterPanel from "./_components/FiltersPanel";
+import FiltersCharactersPanel from './_components/FiltersCharactersPanel';
+import { CharactersList } from './_components/CharactersList';
+import { Characters } from './types/Characters';
+import { BASE_CHARACTERS_URL } from './constant';
 
 export default async function Home() {
-  const charactersResponse = await fetch('https://rickandmortyapi.com/api/character');
-  const characters = await charactersResponse.json() as Characters;
+  const charactersResponse = await fetch(BASE_CHARACTERS_URL);
+  const characters = (await charactersResponse.json()) as Characters;
   return (
     <main className="">
-      <FilterPanel />
-      <section className="grid grid-cols-4 items-center justify-items-center min-h-screen mt-10 pb-20 gap-16">
-        {characters.results.map(character => (
-          <div key={character.id} className="">
-            <div>{character.name}</div>
-            <Image
-              className="dark:invert"
-              src={ character.image}
-              alt={character.name }
-              title={character.name }
-              width={180}
-               height={38}
-              priority
-            />
-            <span>{ character.status}</span>
-            <div>{ `${character.species} - ${character.gender}` }</div>
-          </div>
-        ))}
+      <FiltersCharactersPanel />
+      <section className="mt-10 grid min-h-screen grid-cols-4 items-center justify-items-center gap-16 pb-20">
+        <CharactersList characters={characters} />
       </section>
     </main>
   );
