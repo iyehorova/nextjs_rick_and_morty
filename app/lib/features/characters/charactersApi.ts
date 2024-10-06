@@ -22,7 +22,7 @@ export const charactersApiSlice = createApi({
       // providesTags: () => [{ type: "Characters"}],
     }),
     getFilterCharacters: build.query<Characters, string>({
-      query: (filters) => `?${filters}`,
+      query: (params) => `?${params}`,
       // `providesTags` determines which 'tag' is attached to the
       // cached data returned by the query.
       providesTags: ["Characters"],

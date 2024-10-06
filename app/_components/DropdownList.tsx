@@ -1,74 +1,122 @@
 'use client';
 
 import clsx from 'clsx';
-import {
-  MouseEvent,
-  useState,
-} from 'react';
-
+import { ChangeEvent, useEffect, useRef, useState } from 'react';
 
 type Props = {
   filterBy: string;
   options: string[];
   onFilterSelect: (value: string) => void;
-}
-export default function DropdownList({ filterBy, options, onFilterSelect }: Props): JSX.Element {
-  const [isOpen, setIsOpen] = useState(false);
-  
+  onDeleteFilter: (value: string) => void;
+  filters: { [key: string]: string };
+};
 
-  function handleFilterSelect(event: MouseEvent<HTMLLabelElement>) {
-    const labelElement = event.currentTarget;
-    const inputElement = labelElement.querySelector('input') as HTMLInputElement;
-    
-    if (inputElement) {
-      const currentFilter = inputElement.name; 
-      onFilterSelect(currentFilter);
+export default function DropdownList({
+  filterBy,
+  options,
+  onFilterSelect,
+  onDeleteFilter,
+  filters,
+}: Props): JSX.Element {
+  const [isOpen, setIsOpen] = useState(false);
+  const dropdown = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!isOpen) {
+      window.removeEventListener('click', handleClick);
+      return;
+    }
+    function handleClick(event: MouseEvent) {
+      const target = event.target as Node;
+      if (dropdown.current && !dropdown.current.contains(target)) {
+        setIsOpen(false);
+      }
+    }
+    window.addEventListener('click', handleClick);
+
+    return () => window.removeEventListener('click', handleClick);
+  }, [isOpen]);
+
+  function handleFilterSelect(event: ChangeEvent<HTMLInputElement>) {
+    const inputElement = event.currentTarget as HTMLInputElement;
+    const currentFilter = inputElement.id.toLowerCase();
+    onFilterSelect(currentFilter);
+    setIsOpen(false);
+  }
+
+  function handleFilterClick(event: React.MouseEvent<HTMLInputElement>) {
+    const inputElement = event.currentTarget as HTMLInputElement;
+    const currentFilter = inputElement.id.toLowerCase();
+    if (filters[filterBy] === currentFilter) {
+      onDeleteFilter(filterBy);
     }
   }
-  return (
-    <div className="relative inline-block text-left">
-      <div>
-        <button
-          type="button"
-          className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
-          id="menu-button"
-          aria-expanded="true"
-          aria-haspopup="true"
-          onClick={() => setIsOpen(!isOpen)}
-        >
-          { filterBy}
-          <img src="/img/icon-arrow.svg" width={20} height={20} alt="" />
-        </button>
-      </div>
 
-      <div
-        className={clsx(
-          `absolute left-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none`,
-          { hidden: !isOpen },
-        )}
-        role="menu"
-        aria-orientation="vertical"
-        aria-labelledby="menu-button"
-        tabIndex={-1}
-      >
-        <div className="py-1" role="none">
-          <form>
-            {options.map(option => (
-              <label
-                key={option}
-                className="flex justify-between px-4 py-2 text-sm text-gray-700"
-                role="selectitem"
-                tabIndex={-1}
-                id="menu-item-0"
-                onClick={handleFilterSelect}
-              >
-                {option}
-                <input type="checkbox" name={option}></input>
-              </label>
-            ))}
-          </form>
+  function isChecked(option: string): boolean {
+    return filters[filterBy] === option.toLowerCase();
+  }
+
+  const isFilterSelected = !!filters[filterBy];
+
+  function handleDropDownTrigger() {
+    setIsOpen(prev => !prev);
+  }
+
+  return (
+    <>
+      <div className="relative inline-block text-left" ref={dropdown}>
+        <div>
+          <button
+            type="button"
+            className={clsx(
+              `inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50`,
+              { 'bg-yellow-200 hover:bg-yellow-300': isFilterSelected },
+            )}
+            id="menu-button"
+            aria-expanded="true"
+            aria-haspopup="true"
+            onClick={handleDropDownTrigger}
+          >
+            {filters[filterBy] || filterBy}
+            <img src="/img/icon-arrow.svg" width={20} height={20} alt="" />
+          </button>
+        </div>
+
+        <div
+          className={clsx(
+            `absolute left-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none`,
+            { hidden: !isOpen },
+          )}
+          role="menu"
+          aria-orientation="vertical"
+          aria-labelledby="menu-button"
+          tabIndex={-1}
+        >
+          <div className="py-1" role="none">
+            <form>
+              {options.map(option => (
+                <label
+                  key={option}
+                  className="flex justify-between px-4 py-2 text-sm text-gray-700"
+                  role="selectitem"
+                  tabIndex={-1}
+                  id="menu-item-0"
+                >
+                  {option}
+                  <input
+                    type="radio"
+                    id={option}
+                    name="filter"
+                    onChange={handleFilterSelect}
+                    checked={isChecked(option)}
+                    onClick={handleFilterClick}
+                  ></input>
+                </label>
+              ))}
+            </form>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }

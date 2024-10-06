@@ -22,13 +22,17 @@ const charactersFilterSlice = createSlice({
       const { filterName, filterOption } = payload;
       console.log('filterName', filterName);
       console.log('filterOption', filterOption);
+      console.log('state.filters[filterName] previous', state.filters[filterName]);
       if (!state.filters[filterName] || state.filters[filterName] !== filterOption) {
         state.filters[filterName] = filterOption;
       } else { 
         delete state.filters[filterName];
       }
+    },
+    deleteFilter: (state, { payload }: PayloadAction<string>) => { 
+      delete state.filters[payload];
     }
   },
 });
-export const { toggleFilter } = charactersFilterSlice.actions;
+export const { toggleFilter, deleteFilter } = charactersFilterSlice.actions;
 export default charactersFilterSlice.reducer;
