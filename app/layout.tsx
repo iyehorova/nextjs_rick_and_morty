@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import './globals.css';
 import StoreProvider from './StoreProvider';
+import { Links } from "./types/Links";
+import { NavLink } from "./utils/NavLink";
 
 const geistSans = localFont({
   src: './fonts/GeistVF.woff',
@@ -25,12 +27,24 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+    <StoreProvider>
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <StoreProvider>{children}</StoreProvider>
+        <nav>
+          <ul className="flex gap-10 justify-center text-lg uppercase mt-5">
+            <li><NavLink href={Links.home}>Home</NavLink></li>
+            <li><NavLink href={ Links.episode}>Episode</NavLink></li>
+            <li><NavLink href={ Links.location}>Location</NavLink></li>
+          </ul>
+        </nav>
+        {/* <main className='mx-5 grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]'> */}
+        <div className='mx-10 font-[family-name:var(--font-geist-sans)]'>
+          {children}
+        </div>
       </body>
     </html>
+    </StoreProvider>
   );
 }
