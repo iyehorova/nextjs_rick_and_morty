@@ -1,14 +1,14 @@
-'use client'
+'use client';
 import { dataCharactersSlice } from '@/app/types/Characters';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { RootState } from '../../store';
 
-
+type Filters = { [key: string]: string };
 type InitialState = {
-  filters: {
-    [key: string]: string;
-  };
+  filters: Filters;
   query: string;
 };
+
 const initialState: InitialState = {
   filters: {},
   query: '',
@@ -20,19 +20,24 @@ const charactersFilterSlice = createSlice({
   reducers: {
     toggleFilter: (state, { payload }: PayloadAction<dataCharactersSlice>) => {
       const { filterName, filterOption } = payload;
-      console.log('filterName', filterName);
-      console.log('filterOption', filterOption);
-      console.log('state.filters[filterName] previous', state.filters[filterName]);
-      if (!state.filters[filterName] || state.filters[filterName] !== filterOption) {
+      if (
+        !state.filters[filterName] ||
+        state.filters[filterName] !== filterOption
+      ) {
         state.filters[filterName] = filterOption;
-      } else { 
+      } else {
         delete state.filters[filterName];
       }
     },
-    deleteFilter: (state, { payload }: PayloadAction<string>) => { 
+    deleteFilter: (state, { payload }: PayloadAction<string>) => {
       delete state.filters[payload];
+    },
+    initializeFilters: (state, { payload }: PayloadAction<Filters>) => {
+      state.filters = { ...payload };
     }
   },
 });
-export const { toggleFilter, deleteFilter } = charactersFilterSlice.actions;
+export const { toggleFilter, deleteFilter, initializeFilters } = charactersFilterSlice.actions;
 export default charactersFilterSlice.reducer;
+
+export const selectFilters = (state: RootState) => state.charactersFilter.filters;

@@ -1,14 +1,18 @@
 'use client';
 
 import clsx from 'clsx';
-import { ChangeEvent, useEffect, useRef, useState } from 'react';
+import { ChangeEvent, useRef } from 'react';
+import { useSetSearchParams } from '../hooks/useSetSearchParams';
+import { useDropdownToggle } from '../hooks/useDropdownToggle';
+import { Params } from '../types/Params';
+import { useSearchParams } from 'next/navigation';
 
 type Props = {
   filterBy: string;
   options: string[];
   onFilterSelect: (value: string) => void;
   onDeleteFilter: (value: string) => void;
-  filters: { [key: string]: string };
+  filters: Params;
 };
 
 export default function DropdownList({
@@ -18,25 +22,11 @@ export default function DropdownList({
   onDeleteFilter,
   filters,
 }: Props): JSX.Element {
-  const [isOpen, setIsOpen] = useState(false);
   const dropdown = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (!isOpen) {
-      window.removeEventListener('click', handleClick);
-      return;
-    }
-    function handleClick(event: MouseEvent) {
-      const target = event.target as Node;
-      if (dropdown.current && !dropdown.current.contains(target)) {
-        setIsOpen(false);
-      }
-    }
-    window.addEventListener('click', handleClick);
-
-    return () => window.removeEventListener('click', handleClick);
-  }, [isOpen]);
-
+  const params = useSearchParams();
+  const [isOpen, setIsOpen] = useDropdownToggle(dropdown);
+  const updateParams = useSetSearchParams();
+  
   function handleFilterSelect(event: ChangeEvent<HTMLInputElement>) {
     const inputElement = event.currentTarget as HTMLInputElement;
     const currentFilter = inputElement.id.toLowerCase();
@@ -50,10 +40,11 @@ export default function DropdownList({
     if (filters[filterBy] === currentFilter) {
       onDeleteFilter(filterBy);
     }
+    updateParams(filterBy, currentFilter);
   }
 
   function isChecked(option: string): boolean {
-    return filters[filterBy] === option.toLowerCase();
+    return params.get(filterBy) === option.toLowerCase();
   }
 
   const isFilterSelected = !!filters[filterBy];
