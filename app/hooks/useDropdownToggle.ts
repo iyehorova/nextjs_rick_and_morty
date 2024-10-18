@@ -8,12 +8,15 @@ export function useDropdownToggle(dropdown: RefObject<HTMLDivElement>): [boolean
       window.removeEventListener('click', handleClick);
       return;
     }
+
     function handleClick(event: MouseEvent) {
       const target = event.target as Node;
+
       if (dropdown.current && !dropdown.current.contains(target)) {
         setIsOpen(false);
       }
     }
+    
     window.addEventListener('click', handleClick);
 
     return () => window.removeEventListener('click', handleClick);

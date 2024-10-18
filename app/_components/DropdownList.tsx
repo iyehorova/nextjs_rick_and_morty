@@ -6,6 +6,7 @@ import { useSetSearchParams } from '../hooks/useSetSearchParams';
 import { useDropdownToggle } from '../hooks/useDropdownToggle';
 import { Params } from '../types/Params';
 import { useSearchParams } from 'next/navigation';
+import Image from 'next/image';
 
 type Props = {
   filterBy: string;
@@ -37,9 +38,11 @@ export default function DropdownList({
   function handleFilterClick(event: React.MouseEvent<HTMLInputElement>) {
     const inputElement = event.currentTarget as HTMLInputElement;
     const currentFilter = inputElement.id.toLowerCase();
+
     if (filters[filterBy] === currentFilter) {
       onDeleteFilter(filterBy);
     }
+
     updateParams(filterBy, currentFilter);
   }
 
@@ -69,7 +72,7 @@ export default function DropdownList({
             onClick={handleDropDownTrigger}
           >
             {filters[filterBy] || filterBy}
-            <img src="/img/icon-arrow.svg" width={20} height={20} alt="" />
+            <Image src="/img/icon-arrow.svg" width={20} height={20} alt="" />
           </button>
         </div>
 
@@ -94,6 +97,7 @@ export default function DropdownList({
                   id="menu-item-0"
                 >
                   {option}
+                  
                   <input
                     type="radio"
                     id={option}

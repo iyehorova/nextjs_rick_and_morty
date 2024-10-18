@@ -8,5 +8,6 @@ export function useGetFilters(): Params {
   const filterParams = useGetSearchParams();
   const selectedFilters = useAppSelector(selectFilters);
   useUrlSyncWithFilter();
+  
   return !Object.keys(selectedFilters).length ? filterParams : selectedFilters;
 }

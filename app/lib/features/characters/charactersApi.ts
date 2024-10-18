@@ -11,15 +11,11 @@ export const charactersApiSlice = createApi({
   // Tag types are used for caching and invalidation.
   tagTypes: ["Characters"],
   endpoints: (build) => ({
-    // Supply generics for the return type (in this case `QuotesApiResponse`)
-    // and the expected query argument. If there is no argument, use `void`
-    // for the argument type instead.
     getCharacters: build.query<Characters, number>({
       query: (page = 1) => `?page=${page}`,
       // `providesTags` determines which 'tag' is attached to the
       // cached data returned by the query.
       providesTags: ["Characters"],
-      // providesTags: () => [{ type: "Characters"}],
     }),
     getFilterCharacters: build.query<Characters, string>({
       query: (params) => `?${params}`,

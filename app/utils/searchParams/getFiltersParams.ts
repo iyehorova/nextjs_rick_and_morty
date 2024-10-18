@@ -9,8 +9,10 @@ export function getFiltersParams(filters: Params, currentPage: number) {
     })
     .filter(el => !!el)
     .join('&');
+  
   const result = filtersParams
     ? `page=${currentPage}&` + filtersParams
     : `page=${currentPage}`;
+  
   return result;
 }

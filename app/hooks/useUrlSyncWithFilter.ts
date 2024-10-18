@@ -10,10 +10,12 @@ export function useUrlSyncWithFilter() {
   const filters = useAppSelector(selectFilters);
   const updateParams = useSetSearchParams();
   
-  const searchParams = useMemo(() =>  new URLSearchParams(params), [params]);
+  const searchParams = useMemo(() => new URLSearchParams(params), [params]);
+  
   const areFiltersMissingInUrl = useMemo(() => {
     return Object.entries(filters).some(([key, value]) => {
       const urlValue = searchParams.get(key);
+      
       return urlValue !== value;
     });
   }, [filters, searchParams]);
