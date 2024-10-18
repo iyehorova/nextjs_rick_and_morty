@@ -12,8 +12,6 @@ type InitialState = {
   currentPage: number;
   count: number | null;
   itemsOnPage: number | null;
-  // next: string | null;
-  // prev: string | null;
 };
 
 const initialState: InitialState = {
@@ -21,8 +19,6 @@ const initialState: InitialState = {
   currentPage: 1,
   count: null,
   itemsOnPage: null,
-  // next: null,
-  // prev: null,
 };
 
 const charactersPagesSlice = createSlice({

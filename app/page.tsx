@@ -1,21 +1,20 @@
-import FiltersCharactersPanel from './_components/FiltersCharactersPanel';
-import { CharactersList } from './_components/CharactersList';
-import { Characters } from './types/Characters';
-import { BASE_CHARACTERS_URL } from './constant';
-import { Pagination } from './_components/Pagination';
+import { Suspense } from 'react';
+import { FiltersCharactersPanel } from './_components/FiltersCharactersPanel';
+import { CharactersMain } from './_components/CharactersMain';
 
-export default async function Home() {
-  const charactersResponse = await fetch(BASE_CHARACTERS_URL);
-  const characters = (await charactersResponse.json()) as Characters;
+import { Params } from './types/Params';
+import { transformSearchParamsToString } from './utils/searchParams/transformSearchParamsToString';
+
+export default function Page({ searchParams }: { searchParams?: Params }) {
+  const currentPage = Number(searchParams?.page) || 1;
+  const query = transformSearchParamsToString(searchParams);
+
   return (
-    <>
     <main className="">
       <FiltersCharactersPanel />
-      <section className="mt-10 grid min-h-screen grid-cols-4 items-top justify-items-center gap-16 pb-20">
-        <CharactersList characters={characters} />
-      </section>
-      </main>
-      <Pagination info={characters.info} itemsCount={characters.results.length} />
-      </>
+      <Suspense key={query} fallback={<div>Loading...</div>}>
+        <CharactersMain query={query} currentPage={currentPage} />
+      </Suspense>
+    </main>
   );
 }
