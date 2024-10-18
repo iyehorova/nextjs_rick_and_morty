@@ -17,7 +17,8 @@ export function useDropdownToggle(dropdown: RefObject<HTMLDivElement>): [boolean
     window.addEventListener('click', handleClick);
 
     return () => window.removeEventListener('click', handleClick);
-  }, [isOpen]);
+ 
+  }, [isOpen, dropdown]);
 
   return [isOpen, setIsOpen];
 }

@@ -1,5 +1,5 @@
 import { useSearchParams } from 'next/navigation';
-import { useAppSelector, useAppDispatch } from '../lib/hooks';
+import { useAppSelector } from '../lib/hooks';
 import { getFiltersParams } from '../utils/searchParams/getFiltersParams';
 import { useSetSearchParams } from './useSetSearchParams';
 import { useMemo, useEffect } from 'react';
@@ -7,10 +7,10 @@ import { selectFilters } from '../lib/features/characters/charactersFilterSlice'
 
 export function useUrlSyncWithFilter() {
   const params = useSearchParams();
-  const searchParams = new URLSearchParams(params);
   const filters = useAppSelector(selectFilters);
   const updateParams = useSetSearchParams();
-
+  
+  const searchParams = useMemo(() =>  new URLSearchParams(params), [params]);
   const areFiltersMissingInUrl = useMemo(() => {
     return Object.entries(filters).some(([key, value]) => {
       const urlValue = searchParams.get(key);
