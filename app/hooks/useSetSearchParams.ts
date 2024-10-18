@@ -7,6 +7,7 @@ export function useSetSearchParams() {
   
   const updateParams = (key: string, value: string | null) => {
     const params = new URLSearchParams(searchParams);
+    
     if (value === null) { 
       replace(`${pathname}?${key}`);
       return;

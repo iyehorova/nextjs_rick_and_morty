@@ -20,6 +20,7 @@ export function PaginationNumbers({ pages, currentPage }: Props) {
   }
 
   let pageNumbers = Array.from({ length: pages }, (_, i) => i + 1);
+  
   if (pages > MAX_PAGINATION_ITEMS) {
     const halfOfMax = Math.floor(MAX_PAGINATION_ITEMS / 2);
     const startNumber = currentPage > halfOfMax ? currentPage - halfOfMax : 1;

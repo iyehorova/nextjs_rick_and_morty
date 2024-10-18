@@ -5,10 +5,13 @@ export function transformSearchParamsToString(params: Params | undefined) {
 
   if (params) {
     const paramsArray = [];
+
     for (const [key, value] of Object.entries(params)) {
       paramsArray.push(`${key}=${value}`);
     }
+    
     newApiQuery = paramsArray.join('&');
   }
+
   return newApiQuery;
 }

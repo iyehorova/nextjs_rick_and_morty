@@ -43,8 +43,10 @@ const charactersPagesSlice = createSlice({
     },
   },
 });
+
 export const { refreshState, goToPage, refreshItemsOnPage } =
   charactersPagesSlice.actions;
+  
 export default charactersPagesSlice.reducer;
 
 function getPageFromUrl(url: string): number {

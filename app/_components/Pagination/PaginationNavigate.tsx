@@ -106,6 +106,7 @@ export function PaginationNavigate({ children, currentPage, pages }: Props) {
           disabled={isNextButtonDisabled}
         >
           <span className="sr-only">Next</span>
+          
           <svg
             className="h-5 w-5"
             viewBox="0 0 20 20"

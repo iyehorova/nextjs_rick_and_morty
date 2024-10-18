@@ -38,9 +38,11 @@ export default function DropdownList({
   function handleFilterClick(event: React.MouseEvent<HTMLInputElement>) {
     const inputElement = event.currentTarget as HTMLInputElement;
     const currentFilter = inputElement.id.toLowerCase();
+
     if (filters[filterBy] === currentFilter) {
       onDeleteFilter(filterBy);
     }
+
     updateParams(filterBy, currentFilter);
   }
 
@@ -95,6 +97,7 @@ export default function DropdownList({
                   id="menu-item-0"
                 >
                   {option}
+                  
                   <input
                     type="radio"
                     id={option}
