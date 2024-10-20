@@ -42,7 +42,10 @@ export enum CharacterSpecies {
   alien = 'Alien',
   human = 'Human',
   creature = 'Mythological Creature',
-  unknown = 'unknown'
+  unknown = 'unknown',
+  robot = 'Robot',
+  animal = 'Animal',
+  humanoid = 'Humanoid',
 }
 
 export type dataCharactersSlice = {filterName: string, filterOption: string }

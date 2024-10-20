@@ -1,5 +1,5 @@
 import { Suspense } from 'react';
-import { FiltersCharactersPanel } from './_components/FiltersCharactersPanel';
+import { FiltersCharactersPanel } from './_components/FiltersPanel';
 import { CharactersMain } from './_components/CharactersMain';
 
 import { Params } from './types/Params';
