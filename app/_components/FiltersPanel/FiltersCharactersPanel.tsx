@@ -1,17 +1,19 @@
 'use client';
 
-import { useGetFilters } from '../hooks/useGetFilters';
 import {
   deleteFilter,
   toggleFilter,
-} from '../lib/features/characters/charactersFilterSlice';
-import { useAppDispatch } from '../lib/hooks';
-import { Pages } from '../types/Pages';
-import { getDropdownListData } from '../utils/getDropdownListData';
+} from '@/app/lib/features/characters/charactersFilterSlice';
+import { useAppDispatch } from '@/app/lib/hooks';
+import { Pages } from '@/app/types/Pages';
+import { getDropdownListData } from '@/app/utils/getDropdownListData';
 import DropdownList from './DropdownList';
+import { Search } from './Search';
+import { ClearButton } from './ClearButton';
+import { useGetSearchParams } from '@/app/hooks/useGetSearchParams';
 
 export function FiltersCharactersPanel() {
-  const filters = useGetFilters();
+  const filters = useGetSearchParams();
 
   const dispatch = useAppDispatch();
   const charactersDropdownListData = getDropdownListData(Pages.character);
@@ -23,6 +25,8 @@ export function FiltersCharactersPanel() {
   function handleDeleteFilter(filterName: string) {
     dispatch(deleteFilter(filterName));
   }
+  const isFiltersApplied = Object.keys(filters).length > 0;
+
   return (
     <div className="mt-5 flex gap-8">
       {charactersDropdownListData &&
@@ -38,6 +42,8 @@ export function FiltersCharactersPanel() {
             filters={filters}
           />
         ))}
+      <Search />
+      {isFiltersApplied && <ClearButton />}
     </div>
   );
 }

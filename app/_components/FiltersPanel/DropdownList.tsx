@@ -2,9 +2,9 @@
 
 import clsx from 'clsx';
 import { ChangeEvent, useRef } from 'react';
-import { useSetSearchParams } from '../hooks/useSetSearchParams';
-import { useDropdownToggle } from '../hooks/useDropdownToggle';
-import { Params } from '../types/Params';
+import { useSetSearchParams } from '../../hooks/useSetSearchParams';
+import { useDropdownToggle } from '../../hooks/useDropdownToggle';
+import { Params } from '../../types/Params';
 import { useSearchParams } from 'next/navigation';
 import Image from 'next/image';
 
@@ -27,7 +27,7 @@ export default function DropdownList({
   const params = useSearchParams();
   const [isOpen, setIsOpen] = useDropdownToggle(dropdown);
   const updateParams = useSetSearchParams();
-  
+
   function handleFilterSelect(event: ChangeEvent<HTMLInputElement>) {
     const inputElement = event.currentTarget as HTMLInputElement;
     const currentFilter = inputElement.id.toLowerCase();
@@ -97,7 +97,7 @@ export default function DropdownList({
                   id="menu-item-0"
                 >
                   {option}
-                  
+
                   <input
                     type="radio"
                     id={option}
