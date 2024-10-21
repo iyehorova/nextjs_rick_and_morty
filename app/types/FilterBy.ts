@@ -1,7 +1,7 @@
 export enum FilterCharacters { 
   status = 'status',
   species = 'species',
-  gender = 'gender'   
+  gender = 'gender',   
 }
 
 export enum FilterEpisodes { 
