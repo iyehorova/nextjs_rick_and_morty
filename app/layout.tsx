@@ -35,8 +35,9 @@ export default function RootLayout({
         <nav>
           <ul className="flex gap-10 justify-center text-lg uppercase mt-5">
             <li><NavLink href={Links.home}>Home</NavLink></li>
-            <li><NavLink href={ Links.episode}>Episode</NavLink></li>
-            <li><NavLink href={ Links.location}>Location</NavLink></li>
+            <li><NavLink href={Links.character}>Characters</NavLink></li>
+            <li><NavLink href={ Links.episode}>Episodes</NavLink></li>
+            <li><NavLink href={ Links.location}>Locations</NavLink></li>
           </ul>
         </nav>
         

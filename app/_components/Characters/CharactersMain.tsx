@@ -1,7 +1,8 @@
 import { CharactersList } from './CharactersList';
-import { Pagination } from './Pagination';
-import { Characters } from '../types/Characters';
-import { fetchFilteredCharacters } from '../api/fetchFilteredCharacters';
+import { Pagination } from '../Pagination';
+import { Characters } from '@/app/types/Characters';
+import { fetchData } from '@/app/api/fetchData';
+import { BASE_CHARACTERS_URL } from '@/app/constant';
 
 type Props = {
   query: string;
@@ -9,7 +10,7 @@ type Props = {
 };
 
 export async function CharactersMain({ query, currentPage }: Props) {
-  const characters = (await fetchFilteredCharacters(query)) as Characters;
+  const characters = (await fetchData(BASE_CHARACTERS_URL, query)) as Characters;
 
   if (!characters.results) {
     return <div className="mt-20 text-center"> No characters found</div>;
@@ -20,7 +21,7 @@ export async function CharactersMain({ query, currentPage }: Props) {
       <section className="items-top mt-10 grid min-h-screen grid-cols-4 justify-items-center gap-16 pb-20">
         <CharactersList characters={characters} />
       </section>
-      
+
       <Pagination
         currentPage={currentPage}
         info={characters.info}
