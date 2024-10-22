@@ -1,4 +1,4 @@
-import { CharactersBlock } from '@/app/_components/Common/CharactersBlock';
+import { CharactersBlock } from '@/app/_components/CharactersBlock';
 import { fetchDataById } from '@/app/api/fetchData';
 import { BASE_EPISODE_URL } from '@/app/constant';
 import { Episode } from '@/app/types/Episode';

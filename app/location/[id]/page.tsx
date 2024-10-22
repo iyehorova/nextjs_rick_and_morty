@@ -1,4 +1,4 @@
-import { CharactersBlock } from '@/app/_components/Common/CharactersBlock';
+import { CharactersBlock } from '@/app/_components/CharactersBlock';
 import { fetchDataById } from '@/app/api/fetchData';
 import { BASE_LOCATION_URL } from '@/app/constant';
 import { Location } from '@/app/types/Location';

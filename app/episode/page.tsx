@@ -2,7 +2,7 @@ import { transformSearchParamsToString } from "@/app/utils/searchParams/transfor
 import { Suspense } from "react";
 import { FiltersEpisodesPanel } from '../_components/FiltersPanel/FiltersEpisodesPanel';
 import { Params } from '../types/Params';
-import { EpisodesMain } from "../_components/Episodes/EpisodesMain";
+import { EpisodesMain } from "../_components/EpisodesPage/EpisodesMain";
 
 export default function EpisodesPage({
   searchParams,
