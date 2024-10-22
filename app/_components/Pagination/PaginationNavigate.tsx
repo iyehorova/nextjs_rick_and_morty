@@ -1,12 +1,12 @@
 import { FIRST_PAGE } from '../../constant';
 import { useSetSearchParams } from '../../hooks/useSetSearchParams';
-import { goToPage } from '../../lib/features/characters/charactersPagesSlice';
+import { goToPage } from '../../lib/features/pagesSlice';
 import { useAppDispatch } from '../../lib/hooks';
 
 type Props = {
   children: React.ReactNode;
   currentPage: number;
-  pages: number; 
+  pages: number;
 };
 
 export function PaginationNavigate({ children, currentPage, pages }: Props) {
@@ -106,7 +106,7 @@ export function PaginationNavigate({ children, currentPage, pages }: Props) {
           disabled={isNextButtonDisabled}
         >
           <span className="sr-only">Next</span>
-          
+
           <svg
             className="h-5 w-5"
             viewBox="0 0 20 20"

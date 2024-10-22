@@ -48,4 +48,3 @@ export enum CharacterSpecies {
   humanoid = 'Humanoid',
 }
 
-export type dataCharactersSlice = {filterName: string, filterOption: string }
