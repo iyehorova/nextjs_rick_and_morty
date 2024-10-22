@@ -1,5 +1,6 @@
 import { BASE_CHARACTERS_URL } from "../constant";
 import { Character } from "../types/Characters";
+import { CharactersBlock } from "../types/CharactersBlock";
 
 export  async function fetchData(url: string, query: string) {
   if (query) { 
@@ -20,9 +21,14 @@ export async function fetchDataById(url: string, id: string ) {
   return data;
 }
 
-export async function fetchCharactersByIds(ids: string[]) { 
+export async function fetchCharactersByIds(ids: string[]): Promise<CharactersBlock | null> { 
+  if (!ids.length) { 
+    return null;
+  }
   const res = await fetch(`${BASE_CHARACTERS_URL}/${ids.join(',')}`);
   const data: Character[] = await res.json();
+  
+
   const extractData = data.reduce((acc, { id, name, image }) => {
     acc[id] = { name, image };
     return acc;

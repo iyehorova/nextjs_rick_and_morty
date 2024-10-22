@@ -12,6 +12,11 @@ export async function CharactersBlock({ urls }: Props) {
   const charactersUrl = getRoutesFromUrl(urls);
   const charactersIds = getIdsFromUrl(charactersUrl);
   const charactersData = await fetchCharactersByIds(charactersIds);
+
+  if (!charactersData) { 
+    return <p>No one lives here</p>
+  }
+
   return (
     <>
       <p>Residents: </p>
