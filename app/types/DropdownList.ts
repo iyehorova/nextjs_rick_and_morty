@@ -1,1 +1,1 @@
-export type DropdownList = [string, string[]];
+export type DropdownListData = [string, string[]];

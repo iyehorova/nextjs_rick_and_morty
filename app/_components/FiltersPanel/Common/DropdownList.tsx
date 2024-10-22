@@ -2,9 +2,9 @@
 
 import clsx from 'clsx';
 import { ChangeEvent, useRef } from 'react';
-import { useSetSearchParams } from '../../hooks/useSetSearchParams';
-import { useDropdownToggle } from '../../hooks/useDropdownToggle';
-import { Params } from '../../types/Params';
+import { useSetSearchParams } from '../../../hooks/useSetSearchParams';
+import { useDropdownToggle } from '../../../hooks/useDropdownToggle';
+import { Params } from '../../../types/Params';
 import { useSearchParams } from 'next/navigation';
 import Image from 'next/image';
 

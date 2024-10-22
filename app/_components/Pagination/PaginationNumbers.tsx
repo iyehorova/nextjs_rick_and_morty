@@ -1,7 +1,7 @@
 'use client';
 import clsx from 'clsx';
 import { MAX_PAGINATION_ITEMS } from '../../constant';
-import { goToPage } from '../../lib/features/characters/charactersPagesSlice';
+import { goToPage } from '../../lib/features/pagesSlice';
 import { useAppDispatch } from '../../lib/hooks';
 import { useSetSearchParams } from '../../hooks/useSetSearchParams';
 
@@ -20,11 +20,12 @@ export function PaginationNumbers({ pages, currentPage }: Props) {
   }
 
   let pageNumbers = Array.from({ length: pages }, (_, i) => i + 1);
-  
+
   if (pages > MAX_PAGINATION_ITEMS) {
     const halfOfMax = Math.floor(MAX_PAGINATION_ITEMS / 2);
     const startNumber = currentPage > halfOfMax ? currentPage - halfOfMax : 1;
-    const endNumber = pages - currentPage > halfOfMax ? currentPage + halfOfMax : pages;
+    const endNumber =
+      pages - currentPage > halfOfMax ? currentPage + halfOfMax : pages;
     pageNumbers = pageNumbers.slice(startNumber - 1, endNumber);
   }
 
