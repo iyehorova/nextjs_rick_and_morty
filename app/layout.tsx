@@ -4,7 +4,7 @@ import clsx from 'clsx';
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import StoreProvider from './StoreProvider';
-import { Menu } from './_components/Menu/Menu';
+import { Menu } from './_components/Menu';
 
 const robotoMono = localFont({
   src: './fonts/RobotoMono-VariableFont_wght.ttf',

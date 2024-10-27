@@ -1,11 +1,6 @@
 'use client';
-import { clsx } from 'clsx';
+
 import { useEffect, useState } from 'react';
-import { Links } from '@/app/types/Links';
-import { NavLink } from '@/app/utils/NavLink';
-import { useGetPageName } from '../../hooks/useGetPageName';
-import { AnimatedButton } from './AnimatedButton';
-import { AnimatedMenuList } from './AnimatedMenuList';
 import { MenuLinks } from './MenuLinks';
 import { BurgerMenu } from './BurgerMenu';
 
