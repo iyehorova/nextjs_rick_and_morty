@@ -1,7 +1,7 @@
 import { useClearSearchParams } from '@/app/hooks/useSetSearchParams';
 import { clearAll } from '@/app/lib/features/filterSlice';
 import { useAppDispatch } from '@/app/lib/hooks';
-import { IconClear } from '@/app/UI/IconClear';
+import IconClear from '@/app/UI/IconClear';
 
 export function ClearButton() {
   const dispatch = useAppDispatch();

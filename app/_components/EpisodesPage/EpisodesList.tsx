@@ -12,7 +12,7 @@ export function EpisodesList({ episodes}: Props) {
       {episodes.results?.map(({id, name, episode, air_date, characters }) => (
         
         <div key={id} className="">
-          <Link href={`${Links.episode}/${id}`}>
+          <Link href={`${Links.Episode}/${id}`}>
             <div>Episode{id}: <span>{name}</span></div>
             <div>Code: <span>{episode}</span></div>
         
