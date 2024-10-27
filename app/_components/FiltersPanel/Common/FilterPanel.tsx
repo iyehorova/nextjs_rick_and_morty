@@ -26,7 +26,7 @@ export function FilterPanel({ dropdownListData }: Props) {
   const isFiltersApplied = Object.keys(filters).length > 0 && !isOnlyPageChoose;
 
   return (
-    <div className="mt-5 flex gap-8">
+    <div className="my-16 flex flex-col gap-8 md:flex-row">
     {dropdownListData &&
       dropdownListData.map(([filterName, options]) => (
         <DropdownList

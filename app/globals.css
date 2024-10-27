@@ -3,25 +3,68 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* --background: #ffffff;
+  --foreground: #107634; */
+  --background: #0f2926;
+  --foreground: #107634;
+  --accent: #a3e635;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #0f2926;
+    --foreground: #107634;
+    --accent: #a3e635;
   }
 }
 
 body {
+  font-family: Arial, Helvetica, sans-serif;
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+  max-width: 2100px;
+  margin: 0 auto;
+}
+.nav-text {
+  font-size: clamp(1rem, -0.875rem + 8.333vw, 1.5rem);
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+.transform-img {
+  transition-property: all;
+  transition-duration: 600ms;
+  transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.transform-card {
+  transition-property: all;
+  transition-duration: 400ms;
+  transition-timing-function: ease-in-out;
+}
+
+.header-border {
+  background-image: url('/img/header-bg-green2.png');
+  background-repeat: repeat-x;
+  background-position: bottom left;
+}
+
+.footer-background {
+  background-image: url('/img/footer-bg-green.png');
+  background-repeat: repeat-x;
+  background-position: top left;
+}
+
+.characters-bg{
+  background: rgba(15, 41, 38, 0.95) url('/img/bg-rick.jpg');
+  background-blend-mode: darken;
+  background-size: contain ;
+  background-repeat: repeat;
 }

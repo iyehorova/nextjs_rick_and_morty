@@ -6,7 +6,7 @@ import { useSetSearchParams } from '../../../hooks/useSetSearchParams';
 import { useDropdownToggle } from '../../../hooks/useDropdownToggle';
 import { Params } from '../../../types/Params';
 import { useSearchParams } from 'next/navigation';
-import Image from 'next/image';
+import { IconArrow } from '@/app/UI/IconArrow';
 
 type Props = {
   filterBy: string;
@@ -63,8 +63,8 @@ export default function DropdownList({
           <button
             type="button"
             className={clsx(
-              `inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50`,
-              { 'bg-yellow-200 hover:bg-yellow-300': isFilterSelected },
+              `inline-flex w-full justify-center gap-x-1.5 rounded-md bg-foreground px-3 py-2 text-sm font-semibold text-background hover:ring-1 hover:ring-inset hover:ring-lime-600`,
+              { 'text-lime-400': isFilterSelected },
             )}
             id="menu-button"
             aria-expanded="true"
@@ -72,13 +72,13 @@ export default function DropdownList({
             onClick={handleDropDownTrigger}
           >
             {filters[filterBy] || filterBy}
-            <Image src="/img/icon-arrow.svg" width={20} height={20} alt="" />
+            <IconArrow fill={`${isFilterSelected ? '#a3e635' : '#0f2926'}`} />
           </button>
         </div>
 
         <div
           className={clsx(
-            `absolute left-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none`,
+            `absolute left-0 z-10 mt-2 w-56 origin-top-right rounded-md text-background bg-foreground shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none`,
             { hidden: !isOpen },
           )}
           role="menu"
@@ -91,7 +91,7 @@ export default function DropdownList({
               {options.map(option => (
                 <label
                   key={option}
-                  className="flex justify-between px-4 py-2 text-sm text-gray-700"
+                  className="has-[:checked]:text-accent flex justify-between px-4 py-2 text-sm text-background"
                   role="selectitem"
                   tabIndex={-1}
                   id="menu-item-0"
@@ -105,6 +105,7 @@ export default function DropdownList({
                     onChange={handleFilterSelect}
                     checked={isChecked(option)}
                     onClick={handleFilterClick}
+                    className="appearance-none"
                   ></input>
                 </label>
               ))}

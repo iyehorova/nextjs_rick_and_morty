@@ -42,13 +42,13 @@ export function PaginationNavigate({ children, currentPage, pages }: Props) {
   return (
     <div>
       <nav
-        className="isolate inline-flex -space-x-px rounded-md shadow-sm"
+        className="isolate inline-flex -space-x-px rounded-md "
         aria-label="Pagination"
       >
         <button
           onClick={goToStart}
           title={`${isPrevButtonDisabled ? '' : 'To the first page'}`}
-          className="relative mx-2 inline-flex items-center rounded-l-md px-2 py-2 text-blue-500 ring-1 ring-inset ring-gray-300 hover:bg-blue-200 focus:z-20 focus:outline-offset-0 disabled:text-gray-400 disabled:hover:bg-transparent"
+          className="relative mx-2 inline-flex items-center rounded-l-md px-2 py-2 text-background   hover:bg-slate-400 focus:z-20 focus:outline-offset-0 disabled:text-transparent disabled:hover:bg-transparent"
           disabled={isPrevButtonDisabled}
         >
           <span className="sr-only">Previous</span>
@@ -77,7 +77,7 @@ export function PaginationNavigate({ children, currentPage, pages }: Props) {
         <button
           onClick={goToPrevPage}
           title={`${isPrevButtonDisabled ? '' : 'To the previous page'}`}
-          className="relative inline-flex items-center rounded-l-md px-2 py-2 text-blue-500 ring-1 ring-inset ring-gray-300 hover:bg-blue-200 focus:z-20 focus:outline-offset-0 disabled:text-gray-400 disabled:hover:bg-transparent"
+          className="relative inline-flex items-center rounded-l-md px-2 py-2 text-background  hover:bg-slate-400 focus:z-20 focus:outline-offset-0 disabled:text-transparent disabled:hover:bg-transparent"
           disabled={isPrevButtonDisabled}
         >
           <span className="sr-only">Previous</span>
@@ -102,7 +102,7 @@ export function PaginationNavigate({ children, currentPage, pages }: Props) {
         <button
           onClick={goToNextPage}
           title={`${isNextButtonDisabled ? '' : 'To the next page'}`}
-          className="relative mx-2 inline-flex items-center rounded-r-md px-2 py-2 text-blue-500 ring-1 ring-inset ring-gray-300 hover:bg-blue-200 focus:z-20 focus:outline-offset-0 disabled:text-gray-400 disabled:hover:bg-transparent"
+          className="relative mx-2 inline-flex items-center rounded-r-md px-2 py-2 text-background hover:bg-slate-400 focus:z-20 focus:outline-offset-0 disabled:text-transparent disabled:hover:bg-transparent"
           disabled={isNextButtonDisabled}
         >
           <span className="sr-only">Next</span>
@@ -127,7 +127,7 @@ export function PaginationNavigate({ children, currentPage, pages }: Props) {
         <button
           onClick={goToEnd}
           title={`${isNextButtonDisabled ? '' : 'To the last page'}`}
-          className="relative mx-5 inline-flex items-center rounded-r-md px-2 py-2 text-blue-500 ring-1 ring-inset ring-gray-300 hover:bg-blue-200 focus:z-20 focus:outline-offset-0 disabled:text-gray-400 disabled:hover:bg-transparent"
+          className="relative mx-5 inline-flex items-center rounded-r-md px-2 py-2 text-background hover:bg-slate-400 focus:z-20 focus:outline-offset-0 disabled:text-transparent disabled:hover:bg-transparent"
           disabled={isNextButtonDisabled}
         >
           <span className="sr-only">Next</span>

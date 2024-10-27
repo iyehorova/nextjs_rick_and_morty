@@ -1,7 +1,7 @@
 import { useClearSearchParams } from '@/app/hooks/useSetSearchParams';
 import { clearAll } from '@/app/lib/features/filterSlice';
 import { useAppDispatch } from '@/app/lib/hooks';
-import Image from 'next/image';
+import { IconClear } from '@/app/UI/IconClear';
 
 export function ClearButton() {
   const dispatch = useAppDispatch();
@@ -14,7 +14,7 @@ export function ClearButton() {
 
   return (
     <button title="Clear all filters" onClick={clearAllFilters}>
-      <Image width={10} height={10} alt="clear filters" src="/img/clear.svg" />
+      <IconClear fill='#a3e635' width='12'  height='12' />
     </button>
   );
 }
