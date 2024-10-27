@@ -39,9 +39,9 @@ export function PaginationNumbers({ pages, currentPage }: Props) {
           className={clsx(
             `relative z-10 inline-flex items-center px-4 py-2 text-sm font-semibold focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2`,
             {
-              'bg-blue-500 text-white focus-visible:outline-blue-500':
+              'bg-accent text-background focus-visible:outline-accent':
                 currentPage === pageNumber,
-              'text-gray-900 ring-gray-300 hover:bg-gray-50':
+              'text-background ring-background hover:bg-slate-400':
                 currentPage !== pageNumber,
             },
           )}

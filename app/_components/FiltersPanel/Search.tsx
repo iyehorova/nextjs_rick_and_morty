@@ -24,7 +24,7 @@ export function Search() {
 
   return (
     <input
-      className="peer block rounded-md px-3 py-2 text-sm shadow-sm outline-2 ring-1 ring-inset ring-gray-300 placeholder:text-gray-500 hover:bg-gray-50 focus:border-none focus:outline-none"
+      className="peer block text-accent rounded-md px-3 py-2 text-sm  outline-2 bg-green-900  hover:ring-1 hover:ring-inset hover:ring-slate-400 tracking-widest placeholder:text-slate-400 focus:border-none focus:outline-none focus:ring-accent"
       placeholder="Enter name"
       onChange={handleSearch}
       value={inputValue}

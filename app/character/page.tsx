@@ -3,6 +3,7 @@ import { transformSearchParamsToString } from '@/app/utils/searchParams/transfor
 import { Suspense } from 'react';
 import { Params } from '@/app/types/Params';
 import { CharactersMain } from '../_components/CharactersPage';
+import { Loading } from '../_components/Loading';
 
 export default function CharactersPage({
   searchParams,
@@ -14,7 +15,7 @@ export default function CharactersPage({
   return (
     <main className="">
       <FiltersCharactersPanel />
-      <Suspense key={query} fallback={<div>Loading...</div>}>
+      <Suspense key={query} fallback={<Loading />}>
         <CharactersMain query={query} currentPage={currentPage} />
       </Suspense>
     </main>

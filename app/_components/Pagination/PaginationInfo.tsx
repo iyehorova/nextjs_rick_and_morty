@@ -11,8 +11,8 @@ export function PaginationInfo({ currentPage, allItems, pages}: Props) {
   const end = currentPage !== pages ? ITEMS_PER_PAGE * currentPage : allItems;
 
   return (
-    <div>
-      <p className="text-sm text-gray-700">
+    <div className="hidden sm:block">
+      <p className="text-sm text-background">
         Showing <span className="font-medium">{start}</span> to{' '}
         <span className="font-medium">{end}</span> of{' '}
         <span className="font-medium">{allItems}</span> results

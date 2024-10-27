@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "next": "14.2.14",
+    "plaiceholder": "^3.0.0",
     "react": "^18",
     "react-dom": "^18",
     "use-debounce": "^10.0.4"
