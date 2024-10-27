@@ -45,6 +45,7 @@ body {
 }
 
 .transform-card {
+
   transition-property: all;
   transition-duration: 400ms;
   transition-timing-function: ease-in-out;

@@ -13,7 +13,7 @@ export function LocationsList({ locations}: Props) {
       {locations.results?.map(({ id, name, dimension, residents}) => (
         
         <div key={id} className={clsx({ 'text-gray-400': residents.length === 0}) }>
-          <Link href={`${Links.location}/${id}`}>
+          <Link href={`${Links.Location}/${id}`}>
             <div>Location{id}: <span>{name}</span></div>
             <div>Dimension: <span>{dimension}</span></div>
           </Link>

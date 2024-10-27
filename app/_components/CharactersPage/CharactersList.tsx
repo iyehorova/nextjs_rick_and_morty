@@ -1,4 +1,5 @@
 import { Characters} from '../../types/Characters';
+
 import { CharacterItem } from './CharacterItem';
 
 type Props = {
@@ -9,8 +10,9 @@ export function CharactersList({ characters }: Props) {
   return (
     <>
       {characters.results?.map(character => (
-        <CharacterItem  key={character.id} character={character}/>
-       
+
+        <CharacterItem key={character.id} character={character}/>
+
       ))}
     </>
   );

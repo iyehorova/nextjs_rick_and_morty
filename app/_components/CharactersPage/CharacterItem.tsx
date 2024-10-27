@@ -13,14 +13,17 @@ export async function CharacterItem({ character }: Props) {
   const blurDataURL = await getBase64(image);
 
   return (
-    <div className="transform-card group w-full hover:z-20 hover:scale-[1.1]">
+    <div className="transform-card group w-full hover:z-20 hover:scale-[1.1]"
+    >
       <Link
-        href={`${Links.character}/${id}`}
+        href={`${Links.Character}/${id}`}
         className="flex flex-col rounded-lg bg-background p-3"
       >
-        <div className="relative h-full my-0 mx-auto">
+        <div
+          className="relative h-full my-0 mx-auto"
+         >
           <Image
-            className="transform-img rounded-full group-hover:rounded-lg dark:invert"
+            className="transform-img rounded-full group-hover:skew-y-2 group-hover:skew-x-2 dark:invert"
             src={image}
             alt={name}
             title={name}
@@ -31,9 +34,18 @@ export async function CharacterItem({ character }: Props) {
             blurDataURL={blurDataURL}
           />
         </div>
-        <div className="text-2xl mt-5 overflow-hidden text-nowrap w-[calc(95%)] text-ellipsis">{name}</div>
+        <div
+          className="text-2xl mt-5 overflow-hidden text-nowrap w-[calc(95%)] text-ellipsis"
+          style={{
+            transform: "translateZ(50px)",
+          }}
+        >{name}</div>
         
-        <div className="text-slate-600 mt-3 text-justify">
+        <div className="text-slate-600 mt-3 text-justify"
+         style={{
+          transform: "translateZ(50px)",
+        }}
+        >
           <div><span
           className={clsx(
             'mr-3 w-3 h-3 inline-block rounded-full shadow-inner shadow-slate-200',
@@ -47,5 +59,6 @@ export async function CharacterItem({ character }: Props) {
           </div>
         </Link>
     </div>
+   
   );
 }

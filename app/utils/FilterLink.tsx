@@ -6,6 +6,6 @@ type Props = {
 }
 export function FilterLink({ children, filter}: Props) { 
   return (
-    <Link href={`${Links.character}?${filter}=${children}`}>{children}</Link>
+    <Link href={`${Links.Character}?${filter}=${children}`}>{children}</Link>
   )
 }
