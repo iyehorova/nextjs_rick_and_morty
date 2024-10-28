@@ -1,7 +1,7 @@
-import { FIRST_PAGE } from '../../constant';
-import { useSetSearchParams } from '../../hooks/useSetSearchParams';
-import { goToPage } from '../../lib/features/pagesSlice';
-import { useAppDispatch } from '../../lib/hooks';
+import { FIRST_PAGE } from '@/app/constant';
+import { useSetSearchParams } from '@/app/hooks/useSetSearchParams';
+import { goToPage } from '@/app/lib/features/pagesSlice';
+import { useAppDispatch } from '@/app/lib/hooks';
 
 type Props = {
   children: React.ReactNode;

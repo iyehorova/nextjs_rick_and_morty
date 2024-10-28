@@ -26,7 +26,7 @@ export function Menu() {
     setIsOpen(false);
   }
   return (
-    <nav className="header-border box-border px-5 pb-24 pt-5 md:block md:pb-16">
+    <nav className="header-background box-border px-5 pb-24 pt-5 md:block md:pb-16">
       <BurgerMenu
         isOpen={isOpen}
         onToggleBurgermenu={handleToggleBurgerMenu}

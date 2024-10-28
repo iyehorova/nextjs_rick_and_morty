@@ -3,8 +3,6 @@
 @tailwind utilities;
 
 :root {
-  /* --background: #ffffff;
-  --foreground: #107634; */
   --background: #0f2926;
   --foreground: #107634;
   --accent: #a3e635;
@@ -45,14 +43,13 @@ body {
 }
 
 .transform-card {
-
   transition-property: all;
   transition-duration: 400ms;
   transition-timing-function: ease-in-out;
 }
 
-.header-border {
-  background-image: url('/img/header-bg-green2.png');
+.header-background {
+  background-image: url('/img/header-bg-green.png');
   background-repeat: repeat-x;
   background-position: bottom left;
 }
@@ -63,9 +60,28 @@ body {
   background-position: top left;
 }
 
-.characters-bg{
+.characters-bg {
   background: rgba(15, 41, 38, 0.95) url('/img/bg-rick.jpg');
   background-blend-mode: darken;
-  background-size: contain ;
+  background-size: contain;
   background-repeat: repeat;
+}
+
+.home-bg {
+  background: rgba(15, 41, 38, 0.95) url('/img/sky.jpg');
+  background-blend-mode: darken;
+  background-size: contain;
+  background-repeat: repeat;
+}
+
+@keyframes rotateGradient {
+  0% {
+    background: 'conic-gradient(from 0deg, rgb(15 41 38), rgb(16 118 52), rgba(163 230 53), rgb(15 41 38))';
+  }
+  50% {
+    background: 'conic-gradient(from 180deg, rgb(15 41 38), rgb(16 118 52), rgba(163 230 53), rgb(15 41 38))';
+  }
+  100% {
+    background: 'conic-gradient(from 360deg, rgb(15 41 38), rgb(16 118 52), rgba(163 230 53), rgb(15 41 38))';
+  }
 }

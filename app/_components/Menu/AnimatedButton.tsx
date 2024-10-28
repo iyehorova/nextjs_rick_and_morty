@@ -44,7 +44,7 @@ export function AnimatedButton({ onToggleButton, isOpen}: Props) {
       setIsActive(false);
     }
   }, [isOpen])
-  function handleToogleAction() { 
+  function handleToggleAction() { 
     setIsActive(prev => !prev);
     onToggleButton(!isActive);
   }
@@ -59,7 +59,7 @@ export function AnimatedButton({ onToggleButton, isOpen}: Props) {
         className="group relative h-10 w-10 rounded-full"
         initial={false}
         animate={isActive ? 'open' : 'closed'}
-        onClick={handleToogleAction }
+        onClick={handleToggleAction }
       >
         <motion.span
           variants={VARIANTS.top}

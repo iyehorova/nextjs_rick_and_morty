@@ -1,6 +1,6 @@
+import { Suspense } from 'react';
 import { Params } from '@/app/types/Params';
 import { transformSearchParamsToString } from '@/app/utils/searchParams/transformSearchParamsToString';
-import { Suspense } from 'react';
 import { CharactersMain } from './CharactersPage';
 
 type Props = {
@@ -14,6 +14,7 @@ export function CategoryPage({ searchParams, children }: Props) {
   return (
     <main className="">
       {children}
+      
       <Suspense key={query} fallback={<div>Loading...</div>}>
         <CharactersMain query={query} currentPage={currentPage} />
       </Suspense>

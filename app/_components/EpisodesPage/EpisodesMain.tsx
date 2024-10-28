@@ -1,8 +1,8 @@
 import { fetchData } from "@/app/api/fetchData";
 import { BASE_EPISODE_URL } from "@/app/constant";
+import { Episodes } from "@/app/types/Episode";
 
 import { Pagination } from "../Pagination";
-import { Episodes } from "@/app/types/Episode";
 import { EpisodesList } from "./EpisodesList";
 
 type Props = {

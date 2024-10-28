@@ -1,8 +1,16 @@
-export default function Page() {
 
+import { Menu } from './_components/Menu';
+import { DragCards } from './_components/HomePage/DragCatds';
+import { AnimatedArrowButton } from './_components/HomePage/AnimatedArrowButton';
+
+export default function Page() {
   return (
-    <main className="">
-      <div>This is the home page</div>
-    </main>
+    <div className="home-bg">
+      <div className="absolute z-20 w-full">
+        <Menu />
+      </div>
+      <DragCards />
+     <AnimatedArrowButton />
+    </div>
   );
 }
