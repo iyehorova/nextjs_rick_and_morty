@@ -8,25 +8,23 @@ import getBase64 from '@/app/utils/getBase64';
 type Props = {
   character: Character;
 };
+
 export async function CharacterItem({ character }: Props) {
   const { id, status, image, name, species, gender } = character;
   const blurDataURL = await getBase64(image);
 
   return (
-    <div className="transform-card group w-full hover:z-20 hover:scale-[1.1]"
-    >
+    <div className="transform-card group w-full hover:z-20 hover:scale-[1.1]">
       <Link
         href={`${Links.Character}/${id}`}
         className="flex flex-col rounded-lg bg-background p-3"
       >
-        <div
-          className="relative h-full my-0 mx-auto"
-         >
+        <div className="relative mx-auto my-0 h-full">
           <Image
-            className="transform-img rounded-full group-hover:skew-y-2 group-hover:skew-x-2 dark:invert"
+            className="transform-img rounded-full group-hover:skew-x-2 group-hover:skew-y-2 dark:invert"
             src={image}
             alt={name}
-            title={name}
+            title={`${name}- ${id}`}
             width={300}
             height={300}
             priority
@@ -34,31 +32,44 @@ export async function CharacterItem({ character }: Props) {
             blurDataURL={blurDataURL}
           />
         </div>
+
         <div
-          className="text-2xl mt-5 overflow-hidden text-nowrap w-[calc(95%)] text-ellipsis"
+          className="mt-5 w-[calc(95%)] overflow-hidden text-ellipsis text-nowrap text-2xl"
           style={{
-            transform: "translateZ(50px)",
+            transform: 'translateZ(50px)',
           }}
-        >{name}</div>
-        
-        <div className="text-slate-600 mt-3 text-justify"
-         style={{
-          transform: "translateZ(50px)",
-        }}
         >
-          <div><span
-          className={clsx(
-            'mr-3 w-3 h-3 inline-block rounded-full shadow-inner shadow-slate-200',
-            { 'bg-foreground': status === CharacterStatuses.alive},
-            { 'bg-slate-500': status === CharacterStatuses.dead },
-            { 'bg-yellow-400': status === CharacterStatuses.unknown },
-          )}
-        ></span><span className='text-slate-400'>{ status}</span></div>
-            <div className='overflow-hidden text-nowrap w-[calc(95%)] text-ellipsis'>Species: <span className='text-slate-400'>{species}</span></div>
-            <div>Gender: <span className='text-slate-400'>{gender}</span></div>
+          {name}
+        </div>
+
+        <div
+          className="mt-3 text-justify text-slate-600"
+          style={{
+            transform: 'translateZ(50px)',
+          }}
+        >
+          <div>
+            <span
+              className={clsx(
+                'mr-3 inline-block h-3 w-3 rounded-full shadow-inner shadow-slate-200',
+                { 'bg-foreground': status === CharacterStatuses.alive },
+                { 'bg-slate-500': status === CharacterStatuses.dead },
+                { 'bg-yellow-400': status === CharacterStatuses.unknown },
+              )}
+            ></span>
+
+            <span className="text-slate-400">{status}</span>
           </div>
-        </Link>
+
+          <div className="w-[calc(95%)] overflow-hidden text-ellipsis text-nowrap">
+            Species: <span className="text-slate-400">{species}</span>
+          </div>
+          
+          <div>
+            Gender: <span className="text-slate-400">{gender}</span>
+          </div>
+        </div>
+      </Link>
     </div>
-   
   );
 }

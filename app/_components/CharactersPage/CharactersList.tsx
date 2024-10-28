@@ -1,5 +1,4 @@
-import { Characters} from '../../types/Characters';
-
+import { Characters} from '@/app/types/Characters';
 import { CharacterItem } from './CharacterItem';
 
 type Props = {

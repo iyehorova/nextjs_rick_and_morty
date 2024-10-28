@@ -1,13 +1,13 @@
 import Image from 'next/image';
-import { fetchDataById } from '../../api/fetchData';
-import { Character } from '../../types/Characters';
-import { Params } from '../../types/Params';
 import Link from 'next/link';
-import { getRouteFromUrl } from '../../utils/getRouteFromUrl';
-import { EpisodesList } from '../../_components/CharactersPage/EpisodesList';
-import { BASE_CHARACTERS_URL } from '../../constant';
-import { FilterLink } from '@/app/utils/FilterLink';
+import { fetchDataById } from '@/app/api/fetchData';
 import { FilterCharacters } from '@/app/types/FilterBy';
+import { Character } from '@/app/types/Characters';
+import { Params } from '@/app/types/Params';
+import { BASE_CHARACTERS_URL } from '@/app/constant';
+import { FilterLink } from '@/app/utils/FilterLink';
+import { getRouteFromUrl } from '@/app/utils/getRouteFromUrl';
+import { EpisodesList } from '@/app/_components/CharactersPage/EpisodesList';
 
 export default async function PageDetails({ params }: { params?: Params }) {
   const currentId = params?.id;

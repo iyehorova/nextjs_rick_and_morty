@@ -1,9 +1,9 @@
-import { CharactersList } from './CharactersList';
-import { Pagination } from '../Pagination';
 import { Characters } from '@/app/types/Characters';
 import { fetchData } from '@/app/api/fetchData';
 import { BASE_CHARACTERS_URL } from '@/app/constant';
 import { NotFound } from '../NotFound';
+import { CharactersList } from './CharactersList';
+import { Pagination } from '../Pagination';
 
 type Props = {
   query: string;

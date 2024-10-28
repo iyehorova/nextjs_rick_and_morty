@@ -1,11 +1,11 @@
 'use client';
 import { useEffect } from 'react';
-import { useAppDispatch, useAppSelector } from '../../lib/hooks';
-import { refreshState, selectPageInfo } from '../../lib/features/pagesSlice';
-import { ResponseInfo } from '../../types/ResponseInfo';
-import { PaginationNumbers } from './PaginationNumbers';
+import { useAppDispatch, useAppSelector } from '@/app/lib/hooks';
+import { refreshState, selectPageInfo } from '@/app/lib/features/pagesSlice';
+import { ResponseInfo } from '@/app/types/ResponseInfo';
+import { FIRST_PAGE } from '@/app/constant';
 
-import { FIRST_PAGE } from '../../constant';
+import { PaginationNumbers } from './PaginationNumbers';
 import { PaginationNavigate } from './PaginationNavigate';
 import { PaginationInfo } from './PaginationInfo';
 

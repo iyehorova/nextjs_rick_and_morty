@@ -1,9 +1,9 @@
 'use client';
 import clsx from 'clsx';
-import { MAX_PAGINATION_ITEMS } from '../../constant';
-import { goToPage } from '../../lib/features/pagesSlice';
-import { useAppDispatch } from '../../lib/hooks';
-import { useSetSearchParams } from '../../hooks/useSetSearchParams';
+import { MAX_PAGINATION_ITEMS } from '@/app/constant';
+import { goToPage } from '@/app/lib/features/pagesSlice';
+import { useAppDispatch } from '@/app/lib/hooks';
+import { useSetSearchParams } from '@/app/hooks/useSetSearchParams';
 
 type Props = {
   pages: number;
