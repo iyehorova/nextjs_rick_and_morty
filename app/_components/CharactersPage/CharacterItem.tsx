@@ -16,7 +16,7 @@ export async function CharacterItem({ character }: Props) {
   return (
     <div className="transform-card group w-full hover:z-20 hover:scale-[1.1]">
       <Link
-        href={`${Links.Character}/${id}`}
+        href={`${Links.Characters}/${id}`}
         className="flex flex-col rounded-lg bg-background p-3"
       >
         <div className="relative mx-auto my-0 h-full">

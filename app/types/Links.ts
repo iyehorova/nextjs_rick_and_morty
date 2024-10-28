@@ -1,6 +1,6 @@
 export enum Links { 
   Home = '/',
-  Character = '/character',
-  Episode = '/episode',
-  Location = '/location',
+  Characters = '/character',
+  Episodes = '/episode',
+  Locations = '/location',
 }

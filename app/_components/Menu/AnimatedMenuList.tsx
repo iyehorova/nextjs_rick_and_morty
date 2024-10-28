@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import { Links } from '@/app/types/Links';
-import { NavLink } from '@/app/utils/NavLink';
+import { NavLink } from '@/app/_components/Menu/NavLink';
 import { useMenuAnimation } from '@/app/hooks/useMenuAnimation';
 
 type Props = {

@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 export function AnimatedArrowButton() {
   return (
-    <Link className="" href={`${Links.Character}`}>
+    <Link className="" href={`${Links.Characters}`}>
       <motion.div
         className="fixed bottom-[20%] right-[15%] z-[100] rounded-xl p-[2px] text-xl text-accent"
         style={{

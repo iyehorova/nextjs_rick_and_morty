@@ -5,7 +5,7 @@ import { FilterCharacters } from '@/app/types/FilterBy';
 import { Character } from '@/app/types/Characters';
 import { Params } from '@/app/types/Params';
 import { BASE_CHARACTERS_URL } from '@/app/constant';
-import { FilterLink } from '@/app/utils/FilterLink';
+import { FilterLink } from '@/app/_components/CharactersBlock/FilterLink';
 import { getRouteFromUrl } from '@/app/utils/getRouteFromUrl';
 import { EpisodesList } from '@/app/_components/CharactersPage/EpisodesList';
 
