@@ -1,4 +1,4 @@
-import { Params } from '../../types/Params';
+import { Params } from '@/app/types/Params';
 
 export function transformSearchParamsToString(params: Params | undefined) {
   let newApiQuery = '';

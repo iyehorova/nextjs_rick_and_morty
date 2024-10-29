@@ -2,6 +2,8 @@ import clsx from 'clsx';
 import { useGetPageName } from '@/app/hooks/useGetPageName';
 import { AnimatedButton } from './AnimatedButton';
 import { AnimatedMenuList } from './AnimatedMenuList';
+import Link from 'next/link';
+import { useGetUrl } from '@/app/hooks/useGetUrl';
 
 type Props = {
   isOpen: boolean;
@@ -10,6 +12,7 @@ type Props = {
 };
 export function BurgerMenu({ isOpen, onToggleBurgermenu, onCloseMenu }: Props) {
   const pageName = useGetPageName();
+  const pageUrl = useGetUrl();
   
   return (
     <div className="absolute left-0 right-0 top-0 z-30 box-border flex flex-col items-end justify-center px-5 pt-5 md:hidden">
@@ -23,7 +26,9 @@ export function BurgerMenu({ isOpen, onToggleBurgermenu, onCloseMenu }: Props) {
       </div>
 
       <div className="absolute left-12 top-4 text-2xl text-accent">
-        {pageName}
+        <Link href={pageUrl}>
+          {pageName}
+          </Link>
       </div>
 
       <div className="relative -z-0">

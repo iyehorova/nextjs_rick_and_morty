@@ -1,14 +1,14 @@
 'use client';
 import Link, { LinkProps } from 'next/link';
-import { usePathname } from 'next/navigation';
 import clsx from 'clsx';
+import { useGetUrl } from '@/app/hooks/useGetUrl';
 
 export const NavLink = ({
   children,
   ...rest
 }: { children: React.ReactNode } & LinkProps) => {
-  const pathname = usePathname();
-  const isActive = pathname === rest.href;
+  const pageUrl = useGetUrl();
+  const isActive = pageUrl === rest.href;
 
   return (
     <Link

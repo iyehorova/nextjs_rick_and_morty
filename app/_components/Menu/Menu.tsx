@@ -22,9 +22,11 @@ export function Menu() {
   function handleToggleBurgerMenu(isActive: boolean) {
     setIsOpen(isActive);
   }
+
   function handleCloseMenu() {
     setIsOpen(false);
   }
+
   return (
     <nav className="header-background box-border px-5 pb-24 pt-5 md:block md:pb-16">
       <BurgerMenu
@@ -32,6 +34,7 @@ export function Menu() {
         onToggleBurgermenu={handleToggleBurgerMenu}
         onCloseMenu={handleCloseMenu}
       />
+      
       <ul className="nav-text hidden items-center justify-center gap-10 pt-4 font-[family-name:var(--font-roboto-mono)] text-background md:flex">
         <MenuLinks onCloseMenu={handleCloseMenu} />
       </ul>

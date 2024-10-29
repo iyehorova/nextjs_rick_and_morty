@@ -1,10 +1,10 @@
-import { Links } from "@/app/types/Links";
-import { NavLink } from "@/app/utils/NavLink";
+import { Links } from '@/app/types/Links';
+import { NavLink } from '@/app/_components/Menu/NavLink';
 
 type Props = {
   onCloseMenu: () => void;
-}
-export function MenuLinks({ onCloseMenu}: Props) {
+};
+export function MenuLinks({ onCloseMenu }: Props) {
   const links = Object.entries(Links);
   return (
     <>
