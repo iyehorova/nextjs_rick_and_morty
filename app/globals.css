@@ -74,6 +74,12 @@ body {
   background-repeat: repeat;
 }
 
+.link::after {
+  content: url('/img/icon-link.svg');
+  width: 10px;
+  margin-left: 5px;
+}
+
 @keyframes rotateGradient {
   0% {
     background: 'conic-gradient(from 0deg, rgb(var(--background)), rgb(var(--foreground)), rgba(var(--accent)), rgb(var(--background)))';
