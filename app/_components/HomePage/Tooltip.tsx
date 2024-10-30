@@ -1,0 +1,27 @@
+import { motion } from "framer-motion";
+import IconClear from "@/app/UI/IconClear";
+
+type Props = {
+  onClose: () => void;
+}
+export function Tooltip({ onClose }: Props) {
+  return (
+    <>
+    <motion.div
+      className="fixed bottom-10 right-[50%] translate-x-1/2  bg-orange-600/50 text-white p-3 rounded-xl z-[1000]"
+        style={{ opacity:1 }}
+        animate={{ opacity: 0 }}
+      transition={{
+        duration: 0.5,
+        ease: 'linear',
+        repeat: 3,
+        repeatType: "reverse",
+      }}
+      
+    >
+      <span>Drag the picture!</span>{' '}
+      <button onClick={onClose}><IconClear fill='#a3e635' width='12'  height='12' /></button>
+    </motion.div>
+    </>
+  );
+};
