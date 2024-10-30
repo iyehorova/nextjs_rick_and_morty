@@ -9,14 +9,14 @@ type Props = {
 export function EpisodesList({ episodes }: Props) {
   return (
     <div className="justify-items-left grid h-min grid-cols-1 gap-5 pb-20 sm:grid-cols-2 lg:grid-cols-3">
-      {episodes.results?.map(({ id, name, characters }) => (
+      {episodes.results?.map(({ id, name, episode, characters }) => (
         <div
           key={id}
-          className="rounded-md bg-background p-3 transition-all duration-500 hover:scale-[1.1] hover:text-accent/80"
+          className="rounded-md bg-background p-3 transition-all duration-500 hover:scale-[1.1] hover:text-accent/80 break-words"
         >
           <Link href={`${Links.Episodes}/${id}`}>
             <div>
-              <span className="text-mute/90">Episode {id}:</span>{' '}
+              <span className="text-mute/90">Episode {episode}:</span>{' '}
               <p className="text-3xl">{name}</p>
             </div>
            

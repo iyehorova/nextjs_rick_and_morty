@@ -20,10 +20,9 @@ export default async function EpisodeDetailsPage({
 
   return (
     <CardDetails>
-      <p>Episode {id}: </p> <p className="text-4xl text-accent/70"> {name}</p>
+      <p>Episode {episode}: </p> <p className="text-4xl text-accent/70"> {name}</p>
       <p>Air date:<span className="text-mute"> {air_date}</span></p>
-      <p>Code: <span className="text-mute">{episode}</span></p>
-
+      
       <CharactersBlock urls={characters}></CharactersBlock>
     </CardDetails>
   );
