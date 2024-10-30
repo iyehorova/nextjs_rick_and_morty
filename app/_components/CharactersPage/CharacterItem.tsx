@@ -21,7 +21,7 @@ export async function CharacterItem({ character }: Props) {
       >
         <div className="relative mx-auto my-0 h-full">
           <Image
-            className="transform-img rounded-full group-hover:skew-x-2 group-hover:skew-y-2 dark:invert"
+            className="transform-img rounded-full group-hover:skew-x-2 group-hover:skew-y-2"
             src={image}
             alt={name}
             title={`${name}- ${id}`}

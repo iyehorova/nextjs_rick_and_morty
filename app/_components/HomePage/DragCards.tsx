@@ -2,23 +2,41 @@
 import { useRef, useState, RefObject } from 'react';
 import { motion } from 'framer-motion';
 import { twMerge } from 'tailwind-merge';
+import { Tooltip } from './Tooltip';
 
 export const DragCards = () => {
+  const [showTooltip, setShowTooltip] = useState(true);
+
+  const handleCloseTooltip = () => {
+    setShowTooltip(false);
+  };
+
+  const handleDrag = () => {
+    setShowTooltip(false);
+  };
+
   return (
     <main className="relative grid min-h-screen w-full place-content-center overflow-hidden">
-      <h2 className="relative z-0 mt-7 text-[20vw] font-black text-background md:text-[200px]">
+      <h2 className="relative z-0 -mt-20 pl-6 text-[20vw] font-black text-background md:mt-7 md:text-[200px]">
         Rick & Morty
       </h2>
-      <Cards />
+
+      {showTooltip && <Tooltip onClose={handleCloseTooltip} />}
+
+      <Cards onDrag={handleDrag} />
     </main>
   );
 };
 
-const Cards = () => {
+type CardProps = {
+  onDrag: () => void;
+}
+
+const Cards = ({ onDrag}: CardProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   return (
-    <div className="absolute inset-0 z-10" ref={containerRef}>
+    <div className="absolute top-[100px] md:0 h-[80%] md:h-screen inset-0 z-10 w-[80%]" ref={containerRef}>
       <Card
         containerRef={containerRef}
         src="https://rickandmortyapi.com/api/character/avatar/5.jpeg"
@@ -28,6 +46,7 @@ const Cards = () => {
         top="20%"
         left="25%"
         className="w-28 md:w-48"
+        onDrag={onDrag}
       />
 
       <Card
@@ -39,6 +58,7 @@ const Cards = () => {
         top="45%"
         left="60%"
         className="w-28 md:w-48"
+        onDrag={onDrag}
       />
 
       <Card
@@ -50,6 +70,7 @@ const Cards = () => {
         top="20%"
         left="40%"
         className="w-28 md:w-48"
+        onDrag={onDrag}
       />
 
       <Card
@@ -61,6 +82,7 @@ const Cards = () => {
         top="50%"
         left="40%"
         className="w-28 md:w-48"
+        onDrag={onDrag}
       />
 
       <Card
@@ -72,6 +94,7 @@ const Cards = () => {
         top="20%"
         left="65%"
         className="w-28 md:w-48"
+        onDrag={onDrag}
       />
 
       <Card
@@ -83,6 +106,7 @@ const Cards = () => {
         top="35%"
         left="55%"
         className="w-28 md:w-48"
+        onDrag={onDrag}
       />
 
       <Card
@@ -94,6 +118,7 @@ const Cards = () => {
         top="45%"
         left="25%"
         className="w-28 md:w-48"
+        onDrag={onDrag}
       />
 
       <Card
@@ -105,6 +130,7 @@ const Cards = () => {
         top="35%"
         left="80%"
         className="w-28 md:w-48"
+        onDrag={onDrag}
       />
     </div>
   );
@@ -119,6 +145,7 @@ type Props = {
   left: string;
   rotate: string;
   className: string;
+  onDrag:() => void
 };
 
 const Card = ({
@@ -130,6 +157,7 @@ const Card = ({
   left,
   rotate,
   className,
+  onDrag,
 }: Props) => {
   const [zIndex, setZIndex] = useState(0);
 
@@ -154,13 +182,14 @@ const Card = ({
   return (
     <motion.img
       onMouseDown={updateZIndex}
+      onDragStart={onDrag}
       style={{
         top,
         left,
         rotate,
         zIndex,
       }}
-      className={twMerge('drag-elements absolute w-28 p-1 pb-4', className)}
+      className={twMerge('drag-elements absolute w-28 p-1 pb-4 cursor-grab active:cursor-grabbing', className)}
       src={src}
       alt={alt}
       title={title}
