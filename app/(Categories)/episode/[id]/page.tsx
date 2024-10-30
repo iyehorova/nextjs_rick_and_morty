@@ -16,7 +16,7 @@ export default async function EpisodeDetailsPage({
   }
 
   const episodeData: Episode = await fetchDataById(BASE_EPISODE_URL, episodeId);
-  const {id, name, air_date, episode, characters } = episodeData;
+  const {name, air_date, episode, characters } = episodeData;
 
   return (
     <CardDetails>
