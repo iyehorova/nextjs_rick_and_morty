@@ -4,17 +4,20 @@ import { Character } from '@/app/types/Characters';
 import { FilterCharacters } from '@/app/types/FilterBy';
 import { getRouteFromUrl } from '@/app/utils/getRouteFromUrl';
 import { FilterLink } from '../CharactersBlock/FilterLink';
-import { EpisodesList } from './EpisodesList';
+import { EpisodesListContainer } from './EpisodesListContainer';
+import { CardDetails } from '../CardDetails';
 
 type Props = {
   serverData: Character;
 };
+
 export function CharactersDetails({ serverData }: Props) {
   const { name, status, species, gender, image, location, episode } =
     serverData;
   const locationUrl = getRouteFromUrl(location.url);
+
   return (
-    <div className="mx-auto my-6 flex max-w-[480px] flex-col gap-2 rounded-xl bg-background p-3 sm:p-5 md:p-10">
+    <CardDetails>
       <Image
         alt={name}
         src={image}
@@ -29,11 +32,11 @@ export function CharactersDetails({ serverData }: Props) {
         }}
       />
 
-      <p className="text-slate-500">
+      <p>
         Name: <span className="text-4xl text-accent/70">{name}</span>
       </p>
 
-      <p className="text-slate-500">
+      <p>
         Status:{' '}
         <FilterLink
           filter={FilterCharacters.status}
@@ -43,7 +46,7 @@ export function CharactersDetails({ serverData }: Props) {
         </FilterLink>
       </p>
 
-      <p className="text-slate-500">
+      <p>
         Species:{' '}
         <FilterLink
           filter={FilterCharacters.species}
@@ -53,7 +56,7 @@ export function CharactersDetails({ serverData }: Props) {
         </FilterLink>
       </p>
 
-      <p className="text-slate-500">
+      <p>
         Gender:{' '}
         <FilterLink
           filter={FilterCharacters.gender}
@@ -63,7 +66,7 @@ export function CharactersDetails({ serverData }: Props) {
         </FilterLink>
       </p>
 
-      <p className="text-slate-500">
+      <p>
         Location:{' '}
         <Link
           className="link text-lg text-slate-400"
@@ -74,7 +77,7 @@ export function CharactersDetails({ serverData }: Props) {
         </Link>
       </p>
 
-      <EpisodesList episodes={episode} />
-    </div>
+      <EpisodesListContainer episodes={episode} />
+    </CardDetails>
   );
 }

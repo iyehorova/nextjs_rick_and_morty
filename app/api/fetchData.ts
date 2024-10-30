@@ -26,9 +26,12 @@ export async function fetchCharactersByIds(ids: string[]): Promise<CharactersBlo
     return null;
   }
   const res = await fetch(`${BASE_CHARACTERS_URL}/${ids.join(',')}`);
-  const data: Character[] = await res.json();
+  const data: Character[] | Character = await res.json();
   
-
+  if (!Array.isArray(data) && !!data) { 
+    return { [data.id]: {name: data.name, image: data.image} }
+  }
+  
   const extractData = data.reduce((acc, { id, name, image }) => {
     acc[id] = { name, image };
     return acc;

@@ -1,3 +1,4 @@
+import { CardDetails } from '@/app/_components/CardDetails';
 import { CharactersBlock } from '@/app/_components/CharactersBlock';
 import { fetchDataById } from '@/app/api/fetchData';
 import { BASE_LOCATION_URL } from '@/app/constant';
@@ -15,12 +16,12 @@ export default async function LocationPage({ params }: { params: Params }) {
   const { name, type, dimension, residents } = data;
 
   return (
-    <>
-      <p>Location: {name}</p>
-      <p>Type: {type}</p>
+    <CardDetails>
+      <p>Location: </p> <p className="text-4xl text-accent/70">{name}</p>
+      <p>Type: <span className="text-slate-400">{type}</span></p>
 
-      <p>Dimension: {dimension}</p>
+      <p>Dimension: <span className="text-slate-400">{dimension}</span></p>
       <CharactersBlock urls={residents} />
-    </>
+    </CardDetails>
   );
 }

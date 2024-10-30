@@ -1,11 +1,11 @@
 import { AnimatePresence, motion } from 'framer-motion';
-import { EpisodeItem } from './EpisodeItem';
+
 type Props = {
   isShow: boolean;
-  episodesUrl: string[];
+  children: React.ReactNode;
 };
 
-export function AccordionList({ isShow, episodesUrl }: Props) {
+export function AccordionList({ isShow, children }: Props) {
   return (
     <AnimatePresence initial={false}>
       {isShow && (
@@ -21,9 +21,7 @@ export function AccordionList({ isShow, episodesUrl }: Props) {
           transition={{ duration: 0.8, ease: [0.04, 0.62, 0.23, 0.98] }}
           className='flex gap-3 flex-wrap'
         >
-          {episodesUrl.map(url => (
-            <EpisodeItem key={url} url={url} />
-          ))}
+          {children }
         </motion.section>
       )}
     </AnimatePresence>

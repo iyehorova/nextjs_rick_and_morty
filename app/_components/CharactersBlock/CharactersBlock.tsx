@@ -3,7 +3,7 @@ import {
   getIdsFromUrl,
   getRoutesFromUrl,
 } from '@/app/utils/getRouteFromUrl';
-import { CharacterItem } from './CharacterItem';
+import { CharactersContainer } from './CharactersContainer';
 
 type Props = {
   urls: string[];
@@ -18,14 +18,6 @@ export async function CharactersBlock({ urls }: Props) {
   }
 
   return (
-    <>
-      <p>Residents: </p>
-      
-      <div className="flex flex-wrap">
-        {charactersUrl.map(url => (
-          <CharacterItem key={url} url={url} charactersData={charactersData} />
-        ))}
-      </div>
-    </>
+    <CharactersContainer charactersUrl={charactersUrl} charactersData={ charactersData} />
   );
 }
