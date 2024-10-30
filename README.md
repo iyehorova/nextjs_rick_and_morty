@@ -1,36 +1,87 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Rick and Morty Fun Page
+This is a vibrant and interactive Rick and Morty-themed web page built with Next.js 14. The site features a unique design with search functionality across characters, locations, and episodes, as well as filtering options for characters by status, species, and gender. This project showcases fun animations, dynamic filtering, and interactive elements to enhance user experience.
 
-## Getting Started
+## Features
+- **Original Design**: Enjoy a custom design that brings the world of Rick and Morty to life.
 
-First, run the development server:
+- **Drag-and-Drop on Home Page**: Character images on the main page can be dragged across the screen for a playful interaction.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Search and Filtering**: Filter characters by status, species, and gender, or search across characters, locations, and episodes for a specific query.
+
+- **Burger Menu for Mobile**: Animated burger menu for smooth navigation on mobile devices.
+
+- **Animated WebM Video**: A WebM video animation on the Locations page that plays during page load and repeats every minute.
+
+- **Pagination**: Pagination for  Characters, Episodes, and Locations pages.
+
+- **Detailed Character, Episode, and Location Pages**: Each item has a dedicated page with detailed attributes and characteristics.
+
+- **Button and Image Effects**: Home page arrow buttons and character images on individual pages use clip-path for creative effects.
+
+
+
+## Technical info
+
+- **App Routing**: Uses Next.js 14's app routing for organized and efficient navigation
+- **API Data Fetching on Server**: All data is fetched server-side, providing enhanced SEO and performance by reducing client-side load times.
+- **Local Storage**: Persistent state management for retaining user data.
+- **Responsive Design**: Fully adaptive and responsive layout that adjusts to all screen types.
+
+- **Custom Hooks**: Reusable custom hooks encapsulate main logic, simplifying components and enhancing code readability.
+
+- **Grouped Category Pages**: Organized layout for category pages, sharing a unified layout for consistency and simplicity.
+
+
+
+## Stack:
+- Next.js 14
+- TypeScript
+- Redux Toolkit
+- Framer Motion
+- Tailwind CSS
+
+
+## Installation and Setup
+
+To run the project locally, follow these steps:
+
+1. **Clone the repository:**
+
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+git clone https://github.com/iyehorova/nextjs_rick_and_morty.git
+cd nextjs_rick_and_morty
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+2. **Install dependencies:**
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
 
-## Learn More
+npm install
+```
+3. **Run the development server:**
 
-To learn more about Next.js, take a look at the following resources:
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+npm run dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+4. **Build for production:**
 
-## Deploy on Vercel
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+npm run build
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+5. **Start production server:**
+
+```
+
+npm run start
+```
+
+
+
+
+### License
+This project is open-source and available under the MIT License.
