@@ -26,7 +26,7 @@ export function BurgerMenu({ isOpen, onToggleBurgermenu, onCloseMenu }: Props) {
         <AnimatedButton onToggleButton={onToggleBurgermenu} isOpen={isOpen} />
       </div>
 
-      <div className="absolute left-12 top-8 text-2xl text-accent">
+      <div className="absolute left-12 top-8 text-3xl text-accent">
         <Link href={pageUrl}>
           {pageName}
           </Link>

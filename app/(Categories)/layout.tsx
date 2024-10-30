@@ -6,6 +6,7 @@ export default function MainLayout({
   children: React.ReactNode;
 }>) {
   const backgroundUrl = '/img/categories-bg.jpg';
+
   return (
     <div
       style={{

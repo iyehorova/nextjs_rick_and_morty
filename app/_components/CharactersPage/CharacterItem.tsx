@@ -43,7 +43,7 @@ export async function CharacterItem({ character }: Props) {
         </div>
 
         <div
-          className="mt-3 text-justify text-slate-600"
+          className="mt-3 text-justify text-mute/80"
           style={{
             transform: 'translateZ(50px)',
           }}
@@ -53,20 +53,20 @@ export async function CharacterItem({ character }: Props) {
               className={clsx(
                 'mr-3 inline-block h-3 w-3 rounded-full shadow-inner shadow-slate-200',
                 { 'bg-foreground': status === CharacterStatuses.alive },
-                { 'bg-slate-500': status === CharacterStatuses.dead },
+                { 'bg-mute/90': status === CharacterStatuses.dead },
                 { 'bg-yellow-400': status === CharacterStatuses.unknown },
               )}
             ></span>
 
-            <span className="text-slate-400">{status}</span>
+            <span className="text-mute">{status}</span>
           </div>
 
           <div className="w-[calc(95%)] overflow-hidden text-ellipsis text-nowrap">
-            Species: <span className="text-slate-400">{species}</span>
+            Species: <span className="text-mute">{species}</span>
           </div>
           
           <div>
-            Gender: <span className="text-slate-400">{gender}</span>
+            Gender: <span className="text-mute">{gender}</span>
           </div>
         </div>
       </Link>

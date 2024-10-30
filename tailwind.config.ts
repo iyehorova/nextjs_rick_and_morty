@@ -11,7 +11,8 @@ const config: Config = {
       colors: {
         background: 'rgb(var(--background) / <alpha-value>)',
         foreground: 'rgb(var(--foreground) / <alpha-value>)',
-        accent: 'rgb(var(--accent) / <alpha-value>)'
+        accent: 'rgb(var(--accent) / <alpha-value>)',
+        mute: 'rgb(var(--mute) / <alpha-value>)',
       },
     },
   },

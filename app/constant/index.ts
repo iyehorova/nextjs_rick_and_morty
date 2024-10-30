@@ -11,4 +11,4 @@ export const ITEMS_PER_PAGE = 20;
 export const FIRST_PAGE = 1;
 
 export const VIDEO_DURATION = 3000;
-export const VIDEO_DELAY = 3 * 60 * 1000;
+export const VIDEO_DELAY = 1 * 60 * 1000;

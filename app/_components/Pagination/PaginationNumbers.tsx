@@ -4,6 +4,7 @@ import { MAX_PAGINATION_ITEMS } from '@/app/constant';
 import { goToPage } from '@/app/lib/features/pagesSlice';
 import { useAppDispatch } from '@/app/lib/hooks';
 import { useSetSearchParams } from '@/app/hooks/useSetSearchParams';
+import { CommonParams } from '@/app/types/Params';
 
 type Props = {
   pages: number;
@@ -16,7 +17,7 @@ export function PaginationNumbers({ pages, currentPage }: Props) {
 
   function handlePageClick(pageNumber: number) {
     dispatch(goToPage(pageNumber));
-    updateParams('page', `${pageNumber}`);
+    updateParams(CommonParams.page, `${pageNumber}`);
   }
 
   let pageNumbers = Array.from({ length: pages }, (_, i) => i + 1);
@@ -41,7 +42,7 @@ export function PaginationNumbers({ pages, currentPage }: Props) {
             {
               'bg-accent text-background focus-visible:outline-accent':
                 currentPage === pageNumber,
-              'text-background ring-background hover:bg-slate-400':
+              'text-background ring-background hover:bg-mute':
                 currentPage !== pageNumber,
             },
           )}
