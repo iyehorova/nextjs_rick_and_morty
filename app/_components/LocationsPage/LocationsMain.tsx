@@ -1,9 +1,9 @@
 import { fetchData } from "@/app/api/fetchData";
 import {  BASE_LOCATION_URL } from "@/app/constant";
+import { Locations } from "@/app/types/Location";
 
 import { Pagination } from "../Pagination";
-import { Locations } from "@/app/types/Location";
-import { LocationsList } from "./LocationsList";
+import { LocationsContainer } from "./LocationsContainer";
 
 type Props = {
   query: string;
@@ -19,8 +19,8 @@ export async function LocationsMain({ query, currentPage }: Props) {
 
   return (
     <>
-      <section className="items-top mt-10 grid min-h-screen grid-cols-1 justify-items-left gap-5 pb-20">
-        <LocationsList locations={locations} />
+      <section className="items-top mt-10 grid min-h-screen grid-cols-1">
+        <LocationsContainer locations={locations} />
       </section>
 
       <Pagination
