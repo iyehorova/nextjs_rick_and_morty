@@ -1,3 +1,4 @@
+import { CardDetails } from '@/app/_components/CardDetails';
 import { CharactersBlock } from '@/app/_components/CharactersBlock';
 import { fetchDataById } from '@/app/api/fetchData';
 import { BASE_EPISODE_URL } from '@/app/constant';
@@ -15,15 +16,15 @@ export default async function EpisodeDetailsPage({
   }
 
   const episodeData: Episode = await fetchDataById(BASE_EPISODE_URL, episodeId);
-  const { name, air_date, episode, characters } = episodeData;
+  const {id, name, air_date, episode, characters } = episodeData;
 
   return (
-    <>
-      <p>Episode: {name}</p>
-      <p>Air date: {air_date}</p>
-      <p>Code: {episode}</p>
+    <CardDetails>
+      <p>Episode {id}: </p> <p className="text-4xl text-accent/70"> {name}</p>
+      <p>Air date:<span className="text-slate-400"> {air_date}</span></p>
+      <p>Code: <span className="text-slate-400">{episode}</span></p>
 
       <CharactersBlock urls={characters}></CharactersBlock>
-    </>
+    </CardDetails>
   );
 }

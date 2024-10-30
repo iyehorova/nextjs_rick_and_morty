@@ -19,7 +19,7 @@ export async function EpisodesMain({ query, currentPage }: Props) {
 
   return (
     <>
-      <section className="items-top mt-10 grid min-h-screen grid-cols-1 justify-items-left gap-5 pb-20">
+      <section className="items-top mt-10 grid min-h-screen grid-cols-1">
         <EpisodesList episodes={episodes} />
       </section>
 

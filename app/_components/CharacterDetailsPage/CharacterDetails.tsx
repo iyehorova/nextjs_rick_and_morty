@@ -68,13 +68,17 @@ export function CharactersDetails({ serverData }: Props) {
 
       <p>
         Location:{' '}
-        <Link
-          className="link text-lg text-slate-400"
-          title="show location"
-          href={`/${locationUrl}`}
-        >
-          {location.name}
-        </Link>
+        {location.name !== 'unknown' ? (
+          <Link
+            className="link text-lg text-slate-400"
+            title="show location"
+            href={`/${locationUrl}`}
+          >
+            {location.name}
+          </Link>
+        ) : (
+          <>{location.name}</>
+        )}
       </p>
 
       <EpisodesListContainer episodes={episode} />

@@ -12,7 +12,7 @@ export function LocationItem({ location }: Props) {
   return (
     <div
       key={id}
-      className="rounded-md bg-background p-3 transition-all duration-500 hover:scale-[1.1] hover:text-accent/60"
+      className="rounded-md bg-background p-3 transition-all duration-500 hover:scale-[1.1] hover:text-accent/60 break-words"
     >
       <Link href={`${Links.Locations}/${id}`}>
         <div>
@@ -20,9 +20,9 @@ export function LocationItem({ location }: Props) {
           <p className="text-3xl">{name}</p>
         </div>
 
-        <div className="text-slate-500">
-          {residents.length} <span>residents</span>
-        </div>
+        <p className="text-slate-500">
+          {residents.length} residents
+        </p>
       </Link>
     </div>
   );

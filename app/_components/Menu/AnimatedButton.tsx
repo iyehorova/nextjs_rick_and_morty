@@ -5,6 +5,7 @@ type Props = {
   onToggleButton: (isActive: boolean) => void;
   isOpen: boolean;
 }
+
 const VARIANTS = {
   top: {
     open: {
@@ -44,10 +45,12 @@ export function AnimatedButton({ onToggleButton, isOpen}: Props) {
       setIsActive(false);
     }
   }, [isOpen])
+
   function handleToggleAction() { 
     setIsActive(prev => !prev);
     onToggleButton(!isActive);
   }
+
   return (
     <MotionConfig
       transition={{

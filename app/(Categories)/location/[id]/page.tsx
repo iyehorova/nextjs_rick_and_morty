@@ -6,21 +6,24 @@ import { Location } from '@/app/types/Location';
 import { Params } from '@/app/types/Params';
 
 export default async function LocationPage({ params }: { params: Params }) {
-  const id = params?.id;
+  const locationId = params?.id;
 
-  if (!id) {
+  if (!locationId) {
     return null;
   }
 
-  const data: Location = await fetchDataById(BASE_LOCATION_URL, id);
-  const { name, type, dimension, residents } = data;
+  const data: Location = await fetchDataById(BASE_LOCATION_URL, locationId);
+  const { id, name, type, dimension, residents } = data;
 
   return (
     <CardDetails>
-      <p>Location: </p> <p className="text-4xl text-accent/70">{name}</p>
-      <p>Type: <span className="text-slate-400">{type}</span></p>
-
-      <p>Dimension: <span className="text-slate-400">{dimension}</span></p>
+      <p>Location {id}: </p> <p className="text-4xl text-accent/70">{name}</p>
+      <p>
+        Type: <span className="text-slate-400">{type}</span>
+      </p>
+      <p>
+        Dimension: <span className="text-slate-400">{dimension}</span>
+      </p>
       <CharactersBlock urls={residents} />
     </CardDetails>
   );

@@ -10,7 +10,7 @@ export function EpisodeItem({ url }: Props) {
 
   return (
     <Link
-      className="flex h-8 w-8 place-content-center place-items-center"
+      className="flex place-content-center place-items-center"
       href={`/${url}`}
     >
       {episodeId}

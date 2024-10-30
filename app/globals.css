@@ -26,6 +26,7 @@ body {
   max-width: 2100px;
   margin: 0 auto;
 }
+
 .nav-text {
   font-size: clamp(1rem, -0.875rem + 8.333vw, 1.5rem);
 }
@@ -74,6 +75,12 @@ body {
   background-repeat: repeat;
 }
 
+.home-button {
+  background:
+    conic-gradient(from 220deg, rgb(15 41 38), rgb(16 118 52), rgb(163 230 53), rgb(15 41 38));
+  clip-path: polygon(84% 0, 0 0, 0 100%, 84% 100%, 100% 50%);
+}
+
 .link::after {
   content: url('/img/icon-link.svg');
   width: 10px;
@@ -84,9 +91,11 @@ body {
   0% {
     background: 'conic-gradient(from 0deg, rgb(var(--background)), rgb(var(--foreground)), rgba(var(--accent)), rgb(var(--background)))';
   }
+
   50% {
     background: 'conic-gradient(from 180deg, rgb(var(--background)), rgb(var(--foreground)), rgba(var(--accent)), rgb(var(--background)))';
   }
+
   100% {
     background: 'conic-gradient(from 360deg, rgb(var(--background)), rgb(var(--foreground)), rgba(var(--accent)), rgb(var(--background)))';
   }
