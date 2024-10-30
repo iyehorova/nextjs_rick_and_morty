@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import { useState } from 'react';
 
 import { CharactersBlock } from '@/app/types/CharactersBlock';
@@ -12,7 +12,7 @@ type Props = {
 };
 
 export function CharactersContainer({ charactersUrl, charactersData }: Props) {
-  const [isShow, setIsShow] = useState(false);
+  const [isShow, setIsShow] = useState(true);
 
   function handleToggleClick() {
     setIsShow(prev => !prev);
@@ -31,9 +31,12 @@ export function CharactersContainer({ charactersUrl, charactersData }: Props) {
       </p>
 
       <div className="flex flex-wrap">
-        <AccordionList isShow={ isShow}>
-        <CharactersList charactersUrl={charactersUrl} charactersData={charactersData}/>
-          </AccordionList>
+        <AccordionList isShow={isShow}>
+          <CharactersList
+            charactersUrl={charactersUrl}
+            charactersData={charactersData}
+          />
+        </AccordionList>
       </div>
     </>
   );
