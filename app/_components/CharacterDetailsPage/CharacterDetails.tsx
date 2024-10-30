@@ -28,7 +28,6 @@ export function CharactersDetails({ serverData }: Props) {
         style={{
           clipPath:
             'polygon(100% 0, 100% 100%, 96% 94%, 81% 98%, 76% 95%, 63% 95%, 58% 99%,47% 99%, 30% 96%, 20% 90%, 7% 98%, 0 91%, 0 1%)',
-          mixBlendMode: 'hard-light',
         }}
       />
 
@@ -40,7 +39,7 @@ export function CharactersDetails({ serverData }: Props) {
         Status:{' '}
         <FilterLink
           filter={FilterCharacters.status}
-          className="link text-lg text-slate-400"
+          className="link text-lg text-mute"
         >
           {status}
         </FilterLink>
@@ -50,7 +49,7 @@ export function CharactersDetails({ serverData }: Props) {
         Species:{' '}
         <FilterLink
           filter={FilterCharacters.species}
-          className="link text-lg text-slate-400"
+          className="link text-lg text-mute"
         >
           {species}
         </FilterLink>
@@ -60,7 +59,7 @@ export function CharactersDetails({ serverData }: Props) {
         Gender:{' '}
         <FilterLink
           filter={FilterCharacters.gender}
-          className="link text-lg text-slate-400"
+          className="link text-lg text-mute"
         >
           {gender}
         </FilterLink>
@@ -70,7 +69,7 @@ export function CharactersDetails({ serverData }: Props) {
         Location:{' '}
         {location.name !== 'unknown' ? (
           <Link
-            className="link text-lg text-slate-400"
+            className="link text-lg text-mute"
             title="show location"
             href={`/${locationUrl}`}
           >

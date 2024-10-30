@@ -11,7 +11,7 @@ export function AccordionControl({ isShow, shownText, hiddenText, onToggleClick 
   );
 
   return (
-    <button onClick={onToggleClick} className="text-slate-400">
+    <button onClick={onToggleClick} className="text-mute">
           {isShow ? (
             <span className="flex items-center gap-2">
           { hiddenText} <EyesOpen />

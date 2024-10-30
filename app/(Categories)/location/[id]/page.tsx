@@ -17,12 +17,12 @@ export default async function LocationPage({ params }: { params: Params }) {
 
   return (
     <CardDetails>
-      <p>Location {id}: </p> <p className="text-4xl text-accent/70">{name}</p>
+      <p>Location {id}: </p><p className="text-4xl text-accent/70">{name}</p>
       <p>
-        Type: <span className="text-slate-400">{type}</span>
+        Type: <span className="text-mute">{type}</span>
       </p>
       <p>
-        Dimension: <span className="text-slate-400">{dimension}</span>
+        Dimension: <span className="text-mute">{dimension}</span>
       </p>
       <CharactersBlock urls={residents} />
     </CardDetails>

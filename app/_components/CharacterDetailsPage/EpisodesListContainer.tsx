@@ -19,7 +19,7 @@ export function EpisodesListContainer({ episodes }: Props) {
 
   return (
     <>
-      <p className="text-slate-500">
+      <p className="text-mute/90">
         Episodes:{' '}
         <AccordionControl
           isShow={isShow}

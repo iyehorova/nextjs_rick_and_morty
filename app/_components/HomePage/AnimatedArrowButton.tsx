@@ -7,12 +7,13 @@ export function AnimatedArrowButton() {
   return (
     <Link className="" href={`${Links.Characters}`}>
       <motion.div
-        className="home-button fixed bottom-[20%] right-[15%] z-[100] rounded-xl p-[2px] text-xl text-accent"
+        className="home-button fixed bottom-[20%] right-[15%] z-[100] rounded-xl p-[2px] text-xl text-accent scale-[1]"
         whileHover={{
           background:
-            'conic-gradient(from 10deg, rgb(15 41 38), rgb(16 118 52), rgb(163 230 53), rgb(15 41 38))',
+            'conic-gradient(from 10deg, rgb(var(--background)), rgb(var(--foreground)), rgb(var(--accent)), rgb(var(--background)))',
         }}
-        whileTap={{ transform: 'scale(0.8)' }}
+
+        whileTap={{ transform: 'scale(0.1)' }}
         transition={{
           duration: 0.5,
           ease: 'linear',

@@ -2,6 +2,7 @@ import { FIRST_PAGE } from '@/app/constant';
 import { useSetSearchParams } from '@/app/hooks/useSetSearchParams';
 import { goToPage } from '@/app/lib/features/pagesSlice';
 import { useAppDispatch } from '@/app/lib/hooks';
+import { CommonParams } from '@/app/types/Params';
 
 type Props = {
   children: React.ReactNode;
@@ -16,24 +17,24 @@ export function PaginationNavigate({ children, currentPage, pages }: Props) {
   function goToPrevPage() {
     const prevPage = currentPage--;
     dispatch(goToPage(prevPage));
-    updateParams('page', `${prevPage}`);
+    updateParams(CommonParams.page, `${prevPage}`);
   }
 
   function goToNextPage() {
     const nextPage = currentPage++;
     dispatch(goToPage(nextPage));
-    updateParams('page', `${nextPage}`);
+    updateParams(CommonParams.page, `${nextPage}`);
   }
 
   function goToStart() {
     dispatch(goToPage(FIRST_PAGE));
-    updateParams('page', `${FIRST_PAGE}`);
+    updateParams(CommonParams.page, `${FIRST_PAGE}`);
   }
 
   function goToEnd() {
     if (pages) {
       dispatch(goToPage(pages));
-      updateParams('page', `${pages}`);
+      updateParams(CommonParams.page, `${pages}`);
     }
   }
   const isNextButtonDisabled = currentPage === pages;
@@ -48,7 +49,7 @@ export function PaginationNavigate({ children, currentPage, pages }: Props) {
         <button
           onClick={goToStart}
           title={`${isPrevButtonDisabled ? '' : 'To the first page'}`}
-          className="relative mx-2 inline-flex items-center rounded-l-md px-2 py-2 text-background   hover:bg-slate-400 focus:z-20 focus:outline-offset-0 disabled:text-transparent disabled:hover:bg-transparent"
+          className="relative mx-2 inline-flex items-center rounded-l-md px-2 py-2 text-background   hover:bg-mute focus:z-20 focus:outline-offset-0 disabled:text-transparent disabled:hover:bg-transparent"
           disabled={isPrevButtonDisabled}
         >
           <span className="sr-only">Previous</span>
@@ -77,7 +78,7 @@ export function PaginationNavigate({ children, currentPage, pages }: Props) {
         <button
           onClick={goToPrevPage}
           title={`${isPrevButtonDisabled ? '' : 'To the previous page'}`}
-          className="relative inline-flex items-center rounded-l-md px-2 py-2 text-background  hover:bg-slate-400 focus:z-20 focus:outline-offset-0 disabled:text-transparent disabled:hover:bg-transparent"
+          className="relative inline-flex items-center rounded-l-md px-2 py-2 text-background  hover:bg-mute focus:z-20 focus:outline-offset-0 disabled:text-transparent disabled:hover:bg-transparent"
           disabled={isPrevButtonDisabled}
         >
           <span className="sr-only">Previous</span>
@@ -102,7 +103,7 @@ export function PaginationNavigate({ children, currentPage, pages }: Props) {
         <button
           onClick={goToNextPage}
           title={`${isNextButtonDisabled ? '' : 'To the next page'}`}
-          className="relative mx-2 inline-flex items-center rounded-r-md px-2 py-2 text-background hover:bg-slate-400 focus:z-20 focus:outline-offset-0 disabled:text-transparent disabled:hover:bg-transparent"
+          className="relative mx-2 inline-flex items-center rounded-r-md px-2 py-2 text-background hover:bg-mute focus:z-20 focus:outline-offset-0 disabled:text-transparent disabled:hover:bg-transparent"
           disabled={isNextButtonDisabled}
         >
           <span className="sr-only">Next</span>
@@ -127,7 +128,7 @@ export function PaginationNavigate({ children, currentPage, pages }: Props) {
         <button
           onClick={goToEnd}
           title={`${isNextButtonDisabled ? '' : 'To the last page'}`}
-          className="relative mx-5 inline-flex items-center rounded-r-md px-2 py-2 text-background hover:bg-slate-400 focus:z-20 focus:outline-offset-0 disabled:text-transparent disabled:hover:bg-transparent"
+          className="relative mx-5 inline-flex items-center rounded-r-md px-2 py-2 text-background hover:bg-mute focus:z-20 focus:outline-offset-0 disabled:text-transparent disabled:hover:bg-transparent"
           disabled={isNextButtonDisabled}
         >
           <span className="sr-only">Next</span>

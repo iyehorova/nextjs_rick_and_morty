@@ -12,15 +12,15 @@ export function EpisodesList({ episodes }: Props) {
       {episodes.results?.map(({ id, name, characters }) => (
         <div
           key={id}
-          className="rounded-md bg-background p-3 transition-all duration-500 hover:scale-[1.1] hover:text-accent/60"
+          className="rounded-md bg-background p-3 transition-all duration-500 hover:scale-[1.1] hover:text-accent/80"
         >
           <Link href={`${Links.Episodes}/${id}`}>
             <div>
-              <span className="text-slate-500">Episode {id}:</span>{' '}
+              <span className="text-mute/90">Episode {id}:</span>{' '}
               <p className="text-3xl">{name}</p>
             </div>
            
-            <p className="text-slate-500">{characters.length} characters</p>
+            <p className="text-mute/90">{characters.length} characters</p>
           </Link>
         </div>
       ))}

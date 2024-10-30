@@ -4,8 +4,9 @@
 
 :root {
   --background: 15 41 38;
-  --foreground: 16 118 52;
+  --foreground: 24 160 71;
   --accent: 163 230 53;
+  --mute: 148 163 184;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -50,13 +51,13 @@ body {
 }
 
 .header-background {
-  background-image: url('/img/header-bg-green.png');
+  background-image: url('/img/header-bg-green_light.png');
   background-repeat: repeat-x;
   background-position: bottom left;
 }
 
 .footer-background {
-  background-image: url('/img/footer-bg-green.png');
+  background-image: url('/img/footer-bg-green_light.png');
   background-repeat: repeat-x;
   background-position: top left;
 }
@@ -77,7 +78,7 @@ body {
 
 .home-button {
   background:
-    conic-gradient(from 220deg, rgb(15 41 38), rgb(16 118 52), rgb(163 230 53), rgb(15 41 38));
+    conic-gradient(from 220deg, rgb(var(--background)), rgb(var(--foreground)), rgb(var(--accent)), rgb(var(--background)));
   clip-path: polygon(84% 0, 0 0, 0 100%, 84% 100%, 100% 50%);
 }
 
