@@ -20,7 +20,7 @@ export function AnimatedArrowButton() {
         }}
       >
         <div
-          className="rounded-xl bg-foreground p-3 pr-5 flex place-content-center place-items-center text-xl text-accent"
+          className="rounded-xl bg-foreground p-3  pr-5 flex place-content-center place-items-center text-xl text-accent"
           style={{
             clipPath: 'polygon(84% 0, 0 0, 0 100%, 84% 100%, 100% 50%)',
           }}

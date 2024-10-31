@@ -3,17 +3,10 @@ import { useRef, useState, RefObject } from 'react';
 import { motion } from 'framer-motion';
 import { twMerge } from 'tailwind-merge';
 import { Tooltip } from './Tooltip';
+import { useTooltip } from '@/app/hooks/useTooltip';
 
 export const DragCards = () => {
-  const [showTooltip, setShowTooltip] = useState(true);
-
-  const handleCloseTooltip = () => {
-    setShowTooltip(false);
-  };
-
-  const handleDrag = () => {
-    setShowTooltip(false);
-  };
+  const [showTooltip, handleCloseTooltip, handleDrag] = useTooltip();
 
   return (
     <main className="relative grid min-h-screen w-full place-content-center overflow-hidden">
