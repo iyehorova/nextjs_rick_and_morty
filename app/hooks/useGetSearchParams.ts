@@ -13,7 +13,7 @@ export function useGetSearchParams(): Params {
   return filters;
 }
 
-export function useGetSearchParamsByParam(param: string): string | undefined { 
+export function useGetSearchParamsByParam(param: string): string | undefined {
   const params = useSearchParams();
   return params.get(param)?.toString();
 }

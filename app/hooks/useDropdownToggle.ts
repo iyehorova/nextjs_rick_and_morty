@@ -1,6 +1,14 @@
-import { Dispatch, RefObject, SetStateAction, useEffect, useState } from "react";
+import {
+  Dispatch,
+  RefObject,
+  SetStateAction,
+  useEffect,
+  useState,
+} from 'react';
 
-export function useDropdownToggle(dropdown: RefObject<HTMLDivElement>): [boolean, Dispatch<SetStateAction<boolean>>] { 
+export function useDropdownToggle(
+  dropdown: RefObject<HTMLDivElement>,
+): [boolean, Dispatch<SetStateAction<boolean>>] {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
@@ -16,11 +24,10 @@ export function useDropdownToggle(dropdown: RefObject<HTMLDivElement>): [boolean
         setIsOpen(false);
       }
     }
-    
+
     window.addEventListener('click', handleClick);
 
     return () => window.removeEventListener('click', handleClick);
- 
   }, [isOpen, dropdown]);
 
   return [isOpen, setIsOpen];

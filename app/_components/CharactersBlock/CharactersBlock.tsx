@@ -1,8 +1,5 @@
 import { fetchCharactersByIds } from '@/app/api/fetchData';
-import {
-  getIdsFromUrl,
-  getRoutesFromUrl,
-} from '@/app/utils/getRouteFromUrl';
+import { getIdsFromUrl, getRoutesFromUrl } from '@/app/utils/getRouteFromUrl';
 import { CharactersContainer } from './CharactersContainer';
 
 type Props = {
@@ -13,11 +10,14 @@ export async function CharactersBlock({ urls }: Props) {
   const charactersIds = getIdsFromUrl(charactersUrl);
   const charactersData = await fetchCharactersByIds(charactersIds);
 
-  if (!charactersData) { 
-    return <p>No one lives here</p>
+  if (!charactersData) {
+    return <p>No one lives here</p>;
   }
 
   return (
-    <CharactersContainer charactersUrl={charactersUrl} charactersData={ charactersData} />
+    <CharactersContainer
+      charactersUrl={charactersUrl}
+      charactersData={charactersData}
+    />
   );
 }

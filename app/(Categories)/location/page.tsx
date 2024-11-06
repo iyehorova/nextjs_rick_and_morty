@@ -12,9 +12,11 @@ export default function EpisodesPage({
 }) {
   const currentPage = Number(searchParams?.page) || 1;
   const query = transformSearchParamsToString(searchParams);
+
   return (
     <main className="">
       <FiltersLocationsPanel />
+
       <Suspense key={query} fallback={<Loading />}>
         <LocationsMain query={query} currentPage={currentPage} />
       </Suspense>

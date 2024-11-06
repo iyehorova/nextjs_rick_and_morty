@@ -44,6 +44,7 @@ const filterSlice = createSlice({
     clearAll: () => initialState,
   },
 });
+
 export const {
   toggleFilter,
   deleteFilter,

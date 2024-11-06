@@ -1,17 +1,19 @@
-'use client'
-import { useState, useEffect } from "react";
-import { VIDEO_DURATION, VIDEO_DELAY } from "../constant";
-import { LocalStorage } from "../types/LocalStorage";
+'use client';
+import { useState, useEffect } from 'react';
+import { VIDEO_DURATION, VIDEO_DELAY } from '../constant';
+import { LocalStorage } from '../types/LocalStorage';
 
-export function useFlyingUfo() { 
+export function useFlyingUfo() {
   const [isFlying, setIsFlying] = useState(false);
-  
+
   useEffect(() => {
-    const savedValue: boolean = JSON.parse(window.localStorage.getItem(LocalStorage.video)|| 'true');
+    const savedValue: boolean = JSON.parse(
+      window.localStorage.getItem(LocalStorage.video) || 'true',
+    );
     setIsFlying(savedValue);
   }, []);
 
-  useEffect(() => { 
+  useEffect(() => {
     let timer = 0;
 
     if (isFlying) {
@@ -19,16 +21,15 @@ export function useFlyingUfo() {
         setIsFlying(prev => !prev);
         window.localStorage.setItem(LocalStorage.video, 'false');
       }, VIDEO_DURATION);
-
-    } else { 
+    } else {
       timer = window.setTimeout(() => {
-        setIsFlying(prev => !prev)
+        setIsFlying(prev => !prev);
         window.localStorage.setItem(LocalStorage.video, 'true');
-      }, VIDEO_DELAY );
+      }, VIDEO_DELAY);
     }
 
     return () => clearTimeout(timer);
-  }, [isFlying])
+  }, [isFlying]);
 
   return isFlying;
 }

@@ -1,15 +1,15 @@
-export enum FilterCharacters { 
+export enum FilterCharacters {
   status = 'status',
   species = 'species',
-  gender = 'gender',   
+  gender = 'gender',
 }
 
-export enum FilterEpisodes { 
+export enum FilterEpisodes {
   name = 'name',
-  episode = 'episode'
+  episode = 'episode',
 }
 
-export enum FilterLocations { 
+export enum FilterLocations {
   name = 'name',
-  type = 'type'
+  type = 'type',
 }

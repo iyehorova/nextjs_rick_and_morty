@@ -1,4 +1,4 @@
-export function getRandomBackgroundImage(): string { 
+export function getRandomBackgroundImage(): string {
   const backgrounds = [
     '/img/bg-rick.jpg',
     '/img/bg-rick2.jpg',
@@ -6,6 +6,7 @@ export function getRandomBackgroundImage(): string {
     '/img/bg-mom.jpg',
     '/img/bg-summer.jpg',
     '/img/bg-morty.jpg',
-  ]
+  ];
+
   return backgrounds[Math.floor(Math.random() * backgrounds.length)];
 }

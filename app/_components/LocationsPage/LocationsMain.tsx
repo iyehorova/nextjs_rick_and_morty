@@ -1,16 +1,16 @@
-import { fetchData } from "@/app/api/fetchData";
-import {  BASE_LOCATION_URL } from "@/app/constant";
-import { Locations } from "@/app/types/Location";
+import { fetchData } from '@/app/api/fetchData';
+import { BASE_LOCATION_URL } from '@/app/constant';
+import { Locations } from '@/app/types/Location';
 
-import { Pagination } from "../Pagination";
-import { LocationsContainer } from "./LocationsContainer";
+import { Pagination } from '../Pagination';
+import { LocationsContainer } from './LocationsContainer';
 
 type Props = {
   query: string;
   currentPage: number;
 };
 
-export async function LocationsMain({ query, currentPage }: Props) { 
+export async function LocationsMain({ query, currentPage }: Props) {
   const locations = (await fetchData(BASE_LOCATION_URL, query)) as Locations;
 
   if (!locations.results) {

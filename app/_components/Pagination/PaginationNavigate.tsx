@@ -43,13 +43,13 @@ export function PaginationNavigate({ children, currentPage, pages }: Props) {
   return (
     <div>
       <nav
-        className="isolate inline-flex -space-x-px rounded-md "
+        className="isolate inline-flex -space-x-px rounded-md"
         aria-label="Pagination"
       >
         <button
           onClick={goToStart}
           title={`${isPrevButtonDisabled ? '' : 'To the first page'}`}
-          className="relative mx-2 inline-flex items-center rounded-l-md px-2 py-2 text-background   hover:bg-mute focus:z-20 focus:outline-offset-0 disabled:text-transparent disabled:hover:bg-transparent"
+          className="relative mx-2 inline-flex items-center rounded-l-md px-2 py-2 text-background hover:bg-mute focus:z-20 focus:outline-offset-0 disabled:text-transparent disabled:hover:bg-transparent"
           disabled={isPrevButtonDisabled}
         >
           <span className="sr-only">Previous</span>
@@ -78,7 +78,7 @@ export function PaginationNavigate({ children, currentPage, pages }: Props) {
         <button
           onClick={goToPrevPage}
           title={`${isPrevButtonDisabled ? '' : 'To the previous page'}`}
-          className="relative inline-flex items-center rounded-l-md px-2 py-2 text-background  hover:bg-mute focus:z-20 focus:outline-offset-0 disabled:text-transparent disabled:hover:bg-transparent"
+          className="relative inline-flex items-center rounded-l-md px-2 py-2 text-background hover:bg-mute focus:z-20 focus:outline-offset-0 disabled:text-transparent disabled:hover:bg-transparent"
           disabled={isPrevButtonDisabled}
         >
           <span className="sr-only">Previous</span>

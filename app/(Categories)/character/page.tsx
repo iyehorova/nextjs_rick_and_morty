@@ -12,10 +12,11 @@ export default function CharactersPage({
 }) {
   const currentPage = Number(searchParams?.page) || 1;
   const query = transformSearchParamsToString(searchParams);
+
   return (
     <main className="">
       <FiltersCharactersPanel />
-      
+
       <Suspense key={query} fallback={<Loading />}>
         <CharactersMain query={query} currentPage={currentPage} />
       </Suspense>

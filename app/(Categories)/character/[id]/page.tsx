@@ -13,5 +13,5 @@ export default async function PageDetails({ params }: { params?: Params }) {
 
   const data: Character = await fetchDataById(BASE_CHARACTERS_URL, currentId);
 
-  return <CharactersDetails serverData={data} />  
+  return <CharactersDetails serverData={data} />;
 }

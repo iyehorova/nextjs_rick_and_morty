@@ -64,7 +64,7 @@ export async function CharacterItem({ character }: Props) {
           <div className="w-[calc(95%)] overflow-hidden text-ellipsis text-nowrap">
             Species: <span className="text-mute">{species}</span>
           </div>
-          
+
           <div>
             Gender: <span className="text-mute">{gender}</span>
           </div>
