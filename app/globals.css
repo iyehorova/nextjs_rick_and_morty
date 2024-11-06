@@ -77,8 +77,13 @@ body {
 }
 
 .home-button {
-  background:
-    conic-gradient(from 220deg, rgb(var(--background)), rgb(var(--foreground)), rgb(var(--accent)), rgb(var(--background)));
+  background: conic-gradient(
+    from 220deg,
+    rgb(var(--background)),
+    rgb(var(--foreground)),
+    rgb(var(--accent)),
+    rgb(var(--background))
+  );
   clip-path: polygon(84% 0, 0 0, 0 100%, 84% 100%, 100% 50%);
 }
 

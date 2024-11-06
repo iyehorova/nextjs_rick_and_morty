@@ -3,8 +3,14 @@ type Props = {
   shownText: string;
   hiddenText: string;
   onToggleClick: () => void;
-}
-export function AccordionControl({ isShow, shownText, hiddenText, onToggleClick }: Props) { 
+};
+
+export function AccordionControl({
+  isShow,
+  shownText,
+  hiddenText,
+  onToggleClick,
+}: Props) {
   const EyesOpen = () => <img src="/img/icon-eyes.svg" alt="eyes open" />;
   const EyesClose = () => (
     <img src="/img/icon-close-eyes.svg" alt="eyes closed" />
@@ -12,15 +18,15 @@ export function AccordionControl({ isShow, shownText, hiddenText, onToggleClick 
 
   return (
     <button onClick={onToggleClick} className="text-mute">
-          {isShow ? (
-            <span className="flex items-center gap-2">
-          { hiddenText} <EyesOpen />
-            </span>
-          ) : (
-            <span className="flex items-center gap-2">
-            { shownText} <EyesClose />
-            </span>
-          )}
-        </button>
-  )
+      {isShow ? (
+        <span className="flex items-center gap-2">
+          {hiddenText} <EyesOpen />
+        </span>
+      ) : (
+        <span className="flex items-center gap-2">
+          {shownText} <EyesClose />
+        </span>
+      )}
+    </button>
+  );
 }

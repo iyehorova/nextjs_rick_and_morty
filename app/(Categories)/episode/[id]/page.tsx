@@ -16,13 +16,15 @@ export default async function EpisodeDetailsPage({
   }
 
   const episodeData: Episode = await fetchDataById(BASE_EPISODE_URL, episodeId);
-  const {name, air_date, episode, characters } = episodeData;
+  const { name, air_date, episode, characters } = episodeData;
 
   return (
     <CardDetails>
-      <p>Episode {episode}: </p> <p className="text-4xl text-accent/70"> {name}</p>
-      <p>Air date:<span className="text-mute"> {air_date}</span></p>
-      
+      <p>Episode {episode}: </p>{' '}
+      <p className="text-4xl text-accent/70"> {name}</p>
+      <p>
+        Air date:<span className="text-mute"> {air_date}</span>
+      </p>
       <CharactersBlock urls={characters}></CharactersBlock>
     </CardDetails>
   );

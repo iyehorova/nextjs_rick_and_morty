@@ -3,6 +3,7 @@ type Props = {
   width: string;
   height: string;
 };
+
 export default function IconClear({ fill, width, height }: Props) {
   return (
     <svg

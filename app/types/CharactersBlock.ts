@@ -1,4 +1,7 @@
-export type CharactersBlock = Record<string, {
-  name: string;
-  image: string;
-}>
+export type CharactersBlock = Record<
+  string,
+  {
+    name: string;
+    image: string;
+  }
+>;

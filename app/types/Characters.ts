@@ -29,13 +29,13 @@ export interface Character {
 export enum CharacterStatuses {
   alive = 'Alive',
   dead = 'Dead',
-  unknown = 'unknown'
+  unknown = 'unknown',
 }
 
 export enum CharacterGenders {
   male = 'Male',
   female = 'Female',
-  unknown = 'unknown'
+  unknown = 'unknown',
 }
 
 export enum CharacterSpecies {
@@ -47,4 +47,3 @@ export enum CharacterSpecies {
   animal = 'Animal',
   humanoid = 'Humanoid',
 }
-

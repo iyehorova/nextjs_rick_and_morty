@@ -4,5 +4,3 @@ export enum LocalStorage {
   video = 'video',
   tooltip = 'tooltip',
 }
-
-

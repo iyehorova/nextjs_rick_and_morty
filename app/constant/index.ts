@@ -1,4 +1,4 @@
-import { Pages } from "../types/Pages";
+import { Pages } from '../types/Pages';
 
 export const BASE_URL = 'https://rickandmortyapi.com/api/';
 

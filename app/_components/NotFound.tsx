@@ -1,16 +1,19 @@
-import Image from "next/image";
+import Image from 'next/image';
 
-export function NotFound() { 
+export function NotFound() {
   return (
-    <div className="grid grid-cols-2 -mt-20 opacity-40 ">
-      <p className="text-5xl text-foreground tracking-widest font-[family-name:var(--font-geist-1)]  place-self-center">nothing found here</p>
+    <div className="-mt-20 grid grid-cols-2 opacity-40">
+      <p className="place-self-center font-[family-name:var(--font-geist-1)] text-5xl tracking-widest text-foreground">
+        nothing found here
+      </p>
+
       <Image
-        alt='nothing found'
-        src='/img/not-found-rick.png'
+        alt="nothing found"
+        src="/img/not-found-rick.png"
         width={300}
         height={480}
         className="justify-self-end"
       />
     </div>
-  )
+  );
 }

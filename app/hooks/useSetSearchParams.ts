@@ -6,31 +6,31 @@ export function useSetSearchParams() {
   const searchParams = useSearchParams();
   const { replace } = useRouter();
   const pathname = usePathname();
-  
-  const updateParams =  (key: string, value: string | undefined) => {
+
+  const updateParams = (key: string, value: string | undefined) => {
     const params = new URLSearchParams(searchParams);
-    
+
     if (params.get(key) === value || !value) {
       params.delete(key);
     } else {
       params.set(key, value);
     }
 
-    if (key !==CommonParams.page) {
-      params.delete(CommonParams.page)
+    if (key !== CommonParams.page) {
+      params.delete(CommonParams.page);
     }
 
     replace(`${pathname}?${params.toString()}`);
   };
 
   return updateParams;
-};
+}
 
 export function useDebounceSetSearchParams() {
   const searchParams = useSearchParams();
   const { replace } = useRouter();
   const pathname = usePathname();
-  
+
   const updateParams = useDebouncedCallback((value: string | undefined) => {
     const params = new URLSearchParams(searchParams);
 
@@ -41,22 +41,22 @@ export function useDebounceSetSearchParams() {
     }
 
     if (params.get(CommonParams.page)) {
-      params.delete(CommonParams.page)
+      params.delete(CommonParams.page);
     }
 
     replace(`${pathname}?${params.toString()}`);
   }, 500);
 
   return updateParams;
-};
+}
 
 export function useClearSearchParams() {
   const { replace } = useRouter();
   const pathname = usePathname();
-  
+
   const updateParams = () => {
     replace(`${pathname}`);
   };
 
   return updateParams;
-};
+}

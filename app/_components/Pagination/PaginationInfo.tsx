@@ -1,12 +1,12 @@
-import { ITEMS_PER_PAGE } from "@/app/constant";
+import { ITEMS_PER_PAGE } from '@/app/constant';
 
 type Props = {
   currentPage: number;
   allItems: number;
   pages: number;
-}
+};
 
-export function PaginationInfo({ currentPage, allItems, pages}: Props) {
+export function PaginationInfo({ currentPage, allItems, pages }: Props) {
   const start = ITEMS_PER_PAGE * currentPage - ITEMS_PER_PAGE + 1;
   const end = currentPage !== pages ? ITEMS_PER_PAGE * currentPage : allItems;
 

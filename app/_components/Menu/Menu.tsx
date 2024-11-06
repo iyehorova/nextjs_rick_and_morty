@@ -34,7 +34,7 @@ export function Menu() {
         onToggleBurgermenu={handleToggleBurgerMenu}
         onCloseMenu={handleCloseMenu}
       />
-      
+
       <ul className="nav-text hidden items-center justify-center gap-10 pt-4 font-[family-name:var(--font-roboto-mono)] text-background md:flex">
         <MenuLinks onCloseMenu={handleCloseMenu} />
       </ul>

@@ -1,16 +1,16 @@
-import { fetchData } from "@/app/api/fetchData";
-import { BASE_EPISODE_URL } from "@/app/constant";
-import { Episodes } from "@/app/types/Episode";
+import { fetchData } from '@/app/api/fetchData';
+import { BASE_EPISODE_URL } from '@/app/constant';
+import { Episodes } from '@/app/types/Episode';
 
-import { Pagination } from "../Pagination";
-import { EpisodesList } from "./EpisodesList";
+import { Pagination } from '../Pagination';
+import { EpisodesList } from './EpisodesList';
 
 type Props = {
   query: string;
   currentPage: number;
 };
 
-export async function EpisodesMain({ query, currentPage }: Props) { 
+export async function EpisodesMain({ query, currentPage }: Props) {
   const episodes = (await fetchData(BASE_EPISODE_URL, query)) as Episodes;
 
   if (!episodes.results) {

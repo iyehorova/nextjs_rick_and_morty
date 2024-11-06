@@ -1,6 +1,7 @@
 type Props = {
   fill: string;
 };
+
 export function IconArrow({ fill }: Props) {
   return (
     <svg

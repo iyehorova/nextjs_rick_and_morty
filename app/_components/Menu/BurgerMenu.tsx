@@ -14,7 +14,7 @@ type Props = {
 export function BurgerMenu({ isOpen, onToggleBurgermenu, onCloseMenu }: Props) {
   const pageName = useGetPageName();
   const pageUrl = useGetUrl();
-  
+
   return (
     <div className="absolute left-0 right-0 top-0 z-30 box-border flex flex-col items-end justify-center px-5 pt-5 md:hidden">
       <div
@@ -27,9 +27,7 @@ export function BurgerMenu({ isOpen, onToggleBurgermenu, onCloseMenu }: Props) {
       </div>
 
       <div className="absolute left-12 top-7 text-4xl text-accent">
-        <Link href={pageUrl}>
-          {pageName}
-          </Link>
+        <Link href={pageUrl}>{pageName}</Link>
       </div>
 
       <div className="relative -z-0">

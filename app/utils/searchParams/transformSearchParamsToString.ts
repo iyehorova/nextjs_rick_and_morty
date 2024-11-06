@@ -9,7 +9,7 @@ export function transformSearchParamsToString(params: Params | undefined) {
     for (const [key, value] of Object.entries(params)) {
       paramsArray.push(`${key}=${value}`);
     }
-    
+
     newApiQuery = paramsArray.join('&');
   }
 

@@ -1,4 +1,4 @@
-import { Params } from '../../types/Params';
+import { Params } from '@/app/types/Params';
 
 export function getFiltersParams(filters: Params) {
   return Object.keys(filters)
@@ -8,5 +8,5 @@ export function getFiltersParams(filters: Params) {
       }
     })
     .filter(el => !!el)
-    .join('&');  
+    .join('&');
 }

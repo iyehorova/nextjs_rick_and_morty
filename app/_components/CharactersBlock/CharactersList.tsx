@@ -11,7 +11,7 @@ export function CharactersList({ charactersUrl, charactersData }: Props) {
   return (
     <>
       {charactersUrl.map(url => (
-        <AccordionItem key={url} className='w-16 h-16'>
+        <AccordionItem key={url} className="h-16 w-16">
           <CharacterItem url={url} charactersData={charactersData} />
         </AccordionItem>
       ))}

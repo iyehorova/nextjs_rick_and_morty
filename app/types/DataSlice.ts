@@ -1,1 +1,1 @@
-export type dataSlice = {filterName: string, filterOption: string }
+export type dataSlice = { filterName: string; filterOption: string };

@@ -14,7 +14,7 @@ export const NavLink = ({
     <Link
       {...rest}
       className={clsx({
-        'text-accent font-semibold drop-shadow-[0_35px_35px_rgba(255,255,255,0.25)]':
+        'font-semibold text-accent drop-shadow-[0_35px_35px_rgba(255,255,255,0.25)]':
           isActive,
       })}
     >

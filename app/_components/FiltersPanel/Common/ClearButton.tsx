@@ -14,7 +14,7 @@ export function ClearButton() {
 
   return (
     <button title="Clear all filters" onClick={clearAllFilters}>
-      <IconClear fill='#a3e635' width='12'  height='12' />
+      <IconClear fill="#a3e635" width="12" height="12" />
     </button>
   );
 }

@@ -4,7 +4,6 @@ import { charactersApiSlice } from './features/characters/charactersApi';
 import filterSlice from './features/filterSlice';
 import pagesSlice from './features/pagesSlice';
 
-
 export const makeStore = () => {
   return configureStore({
     reducer: {
